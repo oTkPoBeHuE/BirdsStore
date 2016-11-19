@@ -1,22 +1,23 @@
 package model;
 
 public abstract class Product {
-    private Double price;
-    private Double name;
+    private Money price;
+    private String name;
+    private int sold;
 
-    public Double getPrice() {
+    public Money getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Money price) {
         this.price = price;
     }
 
-    public Double getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Double name) {
+    public void setName(String name) {
         this.name = name;
     }
 }
