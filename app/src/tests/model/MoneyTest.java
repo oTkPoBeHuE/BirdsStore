@@ -1,5 +1,6 @@
 package model;
 
+import model.abstractstore.Money;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

@@ -1,6 +1,4 @@
-package model;
-
-import com.sun.xml.internal.bind.v2.TODO;
+package model.abstractstore;
 
 import java.math.BigDecimal;
 
