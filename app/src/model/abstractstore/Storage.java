@@ -1,5 +1,5 @@
 package model.abstractstore;
 
-interface Storage {
+public interface Storage {
 
 }

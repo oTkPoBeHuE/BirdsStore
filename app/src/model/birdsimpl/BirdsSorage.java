@@ -1,6 +1,7 @@
 package model.birdsimpl;
 
 import model.abstractstore.Product;
+import model.abstractstore.Storage;
 
 import java.util.Map;
 
