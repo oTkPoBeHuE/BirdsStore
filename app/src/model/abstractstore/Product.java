@@ -3,7 +3,6 @@ package model.abstractstore;
 public abstract class Product {
     private Money price;
     private String name;
-    private int sold;
 
     public Product(String name, Money price) {
         this.price = price;
