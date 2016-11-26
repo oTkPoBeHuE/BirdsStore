@@ -1,4 +1,4 @@
-package model.abstractstore;
+package business.abstractstore;
 
 public abstract class Product {
     private Money price;

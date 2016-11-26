@@ -1,6 +1,6 @@
-package model;
+package business;
 
-import model.abstractstore.Money;
+import business.abstractstore.Money;
 
 public class Order {
     //// TODO:: Add time % date

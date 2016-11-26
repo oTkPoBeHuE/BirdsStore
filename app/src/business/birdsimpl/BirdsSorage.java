@@ -1,7 +1,7 @@
-package model.birdsimpl;
+package business.birdsimpl;
 
-import model.abstractstore.Product;
-import model.abstractstore.Storage;
+import business.abstractstore.Product;
+import business.abstractstore.Storage;
 
 import java.util.Map;
 

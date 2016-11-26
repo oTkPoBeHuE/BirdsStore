@@ -1,8 +1,8 @@
-package model.birdsimpl;
+package business.birdsimpl;
 
-import model.abstractstore.Product;
-import model.abstractstore.Storage;
-import model.abstractstore.Store;
+import business.abstractstore.Product;
+import business.abstractstore.Storage;
+import business.abstractstore.Store;
 
 public class BirdsStore implements Store {
     Storage storage = new BirdsSorage();

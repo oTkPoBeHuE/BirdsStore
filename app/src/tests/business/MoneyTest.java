@@ -1,6 +1,6 @@
-package model;
+package business;
 
-import model.abstractstore.Money;
+import business.abstractstore.Money;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

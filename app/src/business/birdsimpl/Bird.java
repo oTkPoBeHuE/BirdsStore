@@ -1,7 +1,7 @@
-package model.birdsimpl;
+package business.birdsimpl;
 
-import model.abstractstore.Money;
-import model.abstractstore.Product;
+import business.abstractstore.Money;
+import business.abstractstore.Product;
 
 public class Bird extends Product {
 
