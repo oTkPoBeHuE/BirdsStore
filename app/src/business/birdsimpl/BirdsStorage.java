@@ -21,7 +21,6 @@ public class BirdsStorage implements Storage {
         }
     }
 
-
     @Override
     public void addItem(Product product, int count) {
         //TODO: exception
