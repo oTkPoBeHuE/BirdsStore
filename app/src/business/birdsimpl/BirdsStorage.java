@@ -7,9 +7,9 @@ import data.MemoryDatabase;
 
 import java.util.Map;
 
-public class BirdsSorage implements Storage {
+public class BirdsStorage implements Storage {
 
-    Database<Products> products = new MemoryDatabase<Products>();
+    private final Database<Products> products = new MemoryDatabase<Products>();
 
     private final class Products {
         final Product product;
@@ -19,7 +19,9 @@ public class BirdsSorage implements Storage {
             this.product = product;
             this.count = count;
         }
-
     }
+
+
+
 
 }
