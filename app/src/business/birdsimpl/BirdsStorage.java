@@ -22,6 +22,34 @@ public class BirdsStorage implements Storage {
     }
 
 
+    @Override
+    public void addItem(Product product, int count) {
+        //TODO: exception
+        products.save(product.getName(), new Products(product, count));
+    }
 
+    @Override
+    public void push(String productName, int count) {
+        products.read(productName).count += count;
+    }
 
+    @Override
+    public void put(String productName, int count) {
+        products.read(productName).count -= count;
+    }
+
+    @Override
+    public int getCount(String productName) {
+        return products.read(productName).count;
+    }
+
+    @Override
+    public boolean contains(String productName) {
+        return products.containsKey(productName);
+    }
+
+    @Override
+    public Product findProduct(String productName) {
+        return products.read(productName).product;
+    }
 }

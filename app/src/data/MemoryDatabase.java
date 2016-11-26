@@ -25,7 +25,7 @@ public class MemoryDatabase<T> implements Database<T> {
     }
 
     @Override
-    public boolean ontainsKey(String key) {
+    public boolean containsKey(String key) {
         return false;
     }
 }
