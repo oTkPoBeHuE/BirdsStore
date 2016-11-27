@@ -28,4 +28,8 @@ public class UserServices {
     public static boolean containsUser(String username){
         return users.containsKey(username);
     }
+
+    public static boolean checkPassword(String username, String password){
+       return users.read(username).getPassword().equals(password);
+    }
 }
