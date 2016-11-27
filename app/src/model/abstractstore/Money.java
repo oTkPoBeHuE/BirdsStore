@@ -65,4 +65,8 @@ public final class  Money implements Comparable {
     public int compareTo(Object o) {
         return amount.compareTo(((Money)o).getAmount());
     }
+
+    public boolean amountExist(Money totalAmount) {
+        return   compareTo(totalAmount) >= 0;
+    }
 }

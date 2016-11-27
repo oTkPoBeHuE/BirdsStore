@@ -48,4 +48,5 @@ public class User {
     public int hashCode() {
         return name.toLowerCase().hashCode();
     }
+
 }

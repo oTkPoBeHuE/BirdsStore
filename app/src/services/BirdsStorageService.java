@@ -8,17 +8,17 @@ import model.birdsimpl.BirdsStorage;
 /**
  * Created by oTk on 27.11.2016.
  */
-public class BirdsStoreService {
-    private static BirdsStoreService ourInstance = new BirdsStoreService();
-    public static BirdsStoreService getInstance() {
+public class BirdsStorageService {
+    private static BirdsStorageService ourInstance = new BirdsStorageService();
+    public static BirdsStorageService getInstance() {
         return ourInstance;
     }
+    private static Storage storage = new BirdsStorage();
 
-    private BirdsStoreService() {
+    private BirdsStorageService() {
 
     }
 
-    private static Storage storage = new BirdsStorage();
 
     public static void addBirdsItem(String name, Money price){
         storage.addItem(new Bird(name, price), 0);
@@ -38,5 +38,18 @@ public class BirdsStoreService {
 //        release(productName, count);
 //    }
 
+    public static boolean containsProduct(String name){
+        return storage.contains(name);
+    }
+    public static boolean containsProductCount(String productName, int  count){
+        return  storage.getCount(productName) <= count;
+    }
+
+    private static void checkProduct(String name){
+        //TODO:: exception
+    }
+    private static void checkProductCount(String productName, int  count){
+        //TODO:: exception
+    }
 
 }
