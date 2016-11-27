@@ -1,7 +1,6 @@
 package data;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by oTk on 24.11.2016.
@@ -27,5 +26,15 @@ public class MemoryDatabase<T> implements Database<T> {
     @Override
     public boolean containsKey(String key) {
         return data.containsKey(key.toLowerCase());
+    }
+
+    @Override
+    public int size() {
+        return data.size();
+    }
+
+    @Override
+    public List<T> toList() {
+        return new ArrayList<T>(data.values());
     }
 }

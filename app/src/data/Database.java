@@ -1,5 +1,6 @@
 package data;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 /**
@@ -10,4 +11,6 @@ public interface Database<T> {
     T read(String key);
     void delete(String key);
     boolean containsKey(String key);
+    int size();
+    List<T> toList();
 }

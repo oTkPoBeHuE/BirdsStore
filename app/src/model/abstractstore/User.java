@@ -11,6 +11,7 @@ public class User {
     public User(String name, String password, Money money) {
         this.name = name;
         this.password = password;
+        this.money = money;
     }
 
     public String getName() {
@@ -31,6 +32,9 @@ public class User {
 
     public void setMoney(Money money) {
         this.money = money;
+    }
+    public void setMoney(String moneyString) {
+        this.money = new Money(moneyString);
     }
 
     @Override
