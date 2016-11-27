@@ -1,4 +1,4 @@
-package business.abstractstore;
+package model.abstractstore;
 
 import java.math.BigDecimal;
 

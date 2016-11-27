@@ -1,4 +1,4 @@
-package business.abstractstore;
+package model.abstractstore;
 
 public interface Storage {
     void addItem(Product product, int  count); //  добавить опзицию

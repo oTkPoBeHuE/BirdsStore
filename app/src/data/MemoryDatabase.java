@@ -11,21 +11,21 @@ public class MemoryDatabase<T> implements Database<T> {
 
     @Override
     public void save(String key, T value) {
-        data.put(key, value);
+        data.put(key.toLowerCase(), value);
     }
 
     @Override
     public T read(String key) {
-        return data.get(key);
+        return data.get(key.toLowerCase());
     }
 
     @Override
     public void delete(String key) {
-        data.remove(key);
+        data.remove(key.toLowerCase());
     }
 
     @Override
     public boolean containsKey(String key) {
-        return false;
+        return data.containsKey(key.toLowerCase());
     }
 }

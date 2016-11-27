@@ -1,11 +1,9 @@
-package business.birdsimpl;
+package model.birdsimpl;
 
-import business.abstractstore.Product;
-import business.abstractstore.Storage;
+import model.abstractstore.Product;
+import model.abstractstore.Storage;
 import data.Database;
 import data.MemoryDatabase;
-
-import java.util.Map;
 
 public class BirdsStorage implements Storage {
 
