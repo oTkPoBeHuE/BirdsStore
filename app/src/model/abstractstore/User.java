@@ -3,7 +3,7 @@ package model.abstractstore;
 /**
  * Created by oTk on 26.11.2016.
  */
-public class User {
+public class User implements  Comparable {
     private final String name;
     private String password;
     private Money money;
@@ -51,6 +51,11 @@ public class User {
     @Override
     public int hashCode() {
         return name.toLowerCase().hashCode();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return name.compareTo(((User)o).name);
     }
 
 }

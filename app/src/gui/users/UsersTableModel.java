@@ -5,7 +5,11 @@ import model.abstractstore.User;
 import services.UserService;
 
 import javax.swing.event.TableModelListener;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,7 +17,8 @@ import java.util.Set;
 /**
  * Created by oTk on 27.11.2016.
  */
-public class UsersTableModel implements TableModel {
+public class UsersTableModel extends DefaultTableModel {
+
     private Set<TableModelListener> listeners = new HashSet<TableModelListener>();;
 
     @Override
@@ -28,6 +33,7 @@ public class UsersTableModel implements TableModel {
 
     @Override
     public String getColumnName(int columnIndex) {
+
         switch (columnIndex) {
             case 0:
                 return "Name";
@@ -62,6 +68,7 @@ public class UsersTableModel implements TableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         List<User> users = UserService.getInstance().getAllUsers();
+        Collections.sort(users);
 
         switch (columnIndex) {
             case 0:
@@ -80,13 +87,15 @@ public class UsersTableModel implements TableModel {
 
     }
 
-    @Override
-    public void addTableModelListener(TableModelListener listener) {
-        listeners.add(listener);
-    }
+//    @Override
+//    public void addTableModelListener(TableModelListener listener) {
+//        listeners.add(listener);
+//    }
+//
+//    @Override
+//    public void removeTableModelListener(TableModelListener listener) {
+//        listeners.remove(listener);
+//    }
 
-    @Override
-    public void removeTableModelListener(TableModelListener listener) {
-        listeners.remove(listener);
-    }
+
 }

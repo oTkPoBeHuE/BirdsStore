@@ -1,12 +1,20 @@
 package gui.users;
 
+import gui.MainForm;
+import gui.MainFrame;
+import javafx.scene.control.PasswordField;
+import services.UserService;
+import sun.security.util.Password;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.AbstractTableModel;
 
 /**
  * Created by oTk on 28.11.2016.
  */
 public class AddUserWindow extends JFrame {
+
     JTextField loginField;
     JPasswordField passwordField;
 
@@ -77,10 +85,17 @@ public class AddUserWindow extends JFrame {
 
         ok = new JButton("OK"); // TODO: const
         cancel = new JButton("Cancel"); // TODO: const
-
+        cancel.addActionListener(e -> setVisible(false));
+        ok.addActionListener(e -> addUser(loginField.getText(), passwordField.getPassword()));
         buttonBox.add(ok);
         buttonBox.add(Box.createHorizontalStrut(12));
         buttonBox.add(cancel);
+        }
+
+
+
+    private void addUser(String username, char[] password) {
+        UserService.getInstance().addUser(username, String.valueOf(password));
     }
 
 
