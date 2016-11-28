@@ -1,4 +1,4 @@
-package gui;
+package gui.users;
 
 import model.abstractstore.Money;
 import model.abstractstore.User;
@@ -48,8 +48,9 @@ public class UsersTableModel implements TableModel {
                 return Money.class;
             case 2:
                 return String.class;
+            default:
+                return String.class; // TODO: ?????
         }
-        return String.class; // TODO: ?????
     }
 
     @Override

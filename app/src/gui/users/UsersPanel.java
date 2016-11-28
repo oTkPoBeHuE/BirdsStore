@@ -1,6 +1,4 @@
-package gui;
-
-import services.UserService;
+package gui.users;
 
 import javax.swing.*;
 import javax.swing.table.TableModel;
