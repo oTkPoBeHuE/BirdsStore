@@ -14,17 +14,7 @@ public class MainFrame extends JFrame {
     public MainFrame(String title) throws HeadlessException {
         super(title);
         addUsersTable();
-
-
-
-
-
-
-
-
-
-
-
+        addMenu();
     }
 
     private void addUsersTable(){
@@ -39,12 +29,14 @@ public class MainFrame extends JFrame {
 
     private void addMenu() {
         JFrame addUserWindow = new AddUserWindow();
+
         JMenuBar menuBar = new JMenuBar();
-        JMenu userMenu = new JMenu("User"); // TODO: const
+       // JMenu userMenu = new JMenu("User"); // TODO: const
+
         JMenuItem jMenuItem = new JMenuItem("Add User"); // TODO: const
         jMenuItem.addActionListener(e -> addUserWindow.setVisible(true));
-        userMenu.add(jMenuItem);
-        menuBar.add(userMenu);
+        //userMenu.add(jMenuItem);
+        menuBar.add(jMenuItem);
         menuBar.add(Box.createHorizontalGlue());
         setJMenuBar(menuBar);
     }

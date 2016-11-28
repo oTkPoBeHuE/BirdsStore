@@ -6,72 +6,82 @@ import javax.swing.border.EmptyBorder;
 /**
  * Created by oTk on 28.11.2016.
  */
-public class AddUserWindow  extends JFrame {
+public class AddUserWindow extends JFrame {
+    JTextField loginField;
+    JPasswordField passwordField;
+
+    JLabel loginLabel;
+    JLabel passwordLabel;
+
+    JButton ok;
+    JButton cancel;
+
+    Box loginBox;
+    Box passwordBox;
+    Box buttonBox;
+    Box mainBox;
+
     public AddUserWindow() {
         super("Add User");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         init();
     }
 
-    private void init(){
-        setContentPane(getMainBox());
+    private void init() {
+        setMainBox();
+        setContentPane(mainBox);
         pack();
         setResizable(false);
     }
 
-    private Box getMainBox(){
-        Box  mainBox = Box.createVerticalBox();
-        mainBox.setBorder(new EmptyBorder(12,12,12,12));
-        mainBox.add(getLoginBox());
-        mainBox.add(Box.createVerticalStrut(12));
-        mainBox.add(getPasswordBox());
-        mainBox.add(Box.createVerticalStrut(17));
-        mainBox.add(getButtonBox());
+    private void setMainBox() {
+        setLoginBox();
+        setPasswordBox();
+        setButtonBox();
 
-        return  mainBox;
+        loginLabel.setPreferredSize(passwordLabel.getPreferredSize());
+
+        mainBox = Box.createVerticalBox();
+        mainBox.setBorder(new EmptyBorder(12, 12, 12, 12));
+        mainBox.add(loginBox);
+        mainBox.add(Box.createVerticalStrut(12));
+        mainBox.add(passwordBox);
+        mainBox.add(Box.createVerticalStrut(17));
+        mainBox.add(buttonBox);
     }
 
-    private Box getLoginBox(){
-        Box loginBox = Box.createHorizontalBox();
+    private void setLoginBox() {
+        loginBox = Box.createHorizontalBox();
 
-        JLabel loginLabel  = new JLabel("Username :"); // TODO: const;
-        JTextField loginField = new JTextField(15);
+        loginLabel = new JLabel("Username :"); // TODO: const;
+        loginField = new JTextField(15);
 
         loginBox.add(loginLabel);
         loginBox.add(Box.createHorizontalStrut(6));   // отступ от края для кнопок
         loginBox.add(loginField);
-
-        return loginBox;
-       // loginLabel.setPreferredSize(passwordLabel.getPreferredSize());
     }
 
-    private Box  getPasswordBox(){
-        Box  passwordBox = Box.createHorizontalBox();
+    private void setPasswordBox() {
+        passwordBox = Box.createHorizontalBox();
 
-        JLabel passwordLabel = new JLabel("Password:"); // TODO: const;
-        JPasswordField passwordField = new JPasswordField(15); // TODO: password size const;
+        passwordLabel = new JLabel("Password:"); // TODO: const;
+        passwordField = new JPasswordField(15); // TODO: password size const;
 
         passwordBox.add(passwordLabel);
         passwordBox.add(Box.createHorizontalStrut(6));
         passwordBox.add(passwordField);
-
-        return passwordBox;
-
     }
-    private Box  getButtonBox(){
-        Box buttonBox = Box.createHorizontalBox();
 
-        JButton ok = new JButton("OK"); // TODO: const
-        JButton cancel = new JButton("Cancel"); // TODO: const
+    private void setButtonBox() {
+        buttonBox = Box.createHorizontalBox();
+
+        ok = new JButton("OK"); // TODO: const
+        cancel = new JButton("Cancel"); // TODO: const
 
         buttonBox.add(ok);
         buttonBox.add(Box.createHorizontalStrut(12));
         buttonBox.add(cancel);
-
-        return buttonBox;
     }
-
-
 
 
 }
