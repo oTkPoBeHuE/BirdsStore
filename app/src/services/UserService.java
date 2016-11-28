@@ -50,4 +50,8 @@ public class UserService {
     public List<User> getAllUsers(){
         return users.toList();
     }
+
+    public void setMoney(String username, String money) {
+        getUser(username).setMoney(money);
+    }
 }

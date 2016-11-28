@@ -1,6 +1,7 @@
 package gui;
 
 import gui.users.AddUserWindow;
+import gui.users.SetMoneyWindow;
 import gui.users.UsersTableModel;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowListener;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RunnableFuture;
@@ -48,20 +50,19 @@ public  class MainFrame extends JFrame{
 
 
     private void addMenu() {
-        JFrame addUserWindow = new AddUserWindow();
-
         JMenuBar menuBar = new JMenuBar();
-       // JMenu userMenu = new JMenu("User"); // TODO: const
 
-        JMenuItem jMenuItem = new JMenuItem("Add User"); // TODO: const
-        jMenuItem.addActionListener(e -> addUserWindow.setVisible(true));
-        //userMenu.add(jMenuItem);
-        menuBar.add(jMenuItem);
+        menuBar.add(createJMenuItem("Add User", new AddUserWindow()));
+        menuBar.add(createJMenuItem("Set Money", new SetMoneyWindow()));
+
         menuBar.add(Box.createHorizontalGlue());
         setJMenuBar(menuBar);
     }
-    private void ref(){
-        validate();
-        repaint(11);
+
+    private JMenuItem createJMenuItem(String name,  JFrame jFrame ){
+        JMenuItem jMenuItem = new JMenuItem(name);
+        jMenuItem.addActionListener(e -> jFrame.setVisible(true));
+        return jMenuItem;
     }
+
 }
