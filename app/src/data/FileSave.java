@@ -28,8 +28,8 @@ public class FileSave {
                         + user.getPassword() + SEPARATOR
                         + user.getMoney())
                 .collect(Collectors.toList());
-        Files.write(Paths.get(filename), lines);
 
+        Files.write(Paths.get(filename), lines);
         //  databaseToLines(userDB, filename, user -> user.getName() + SEPARATOR  + user.getPassword() + SEPARATOR  + user.getMoney());
     }
 
@@ -43,8 +43,8 @@ public class FileSave {
                         + Integer.toString(order.getCount()) + SEPARATOR
                         + order.getLocalTime() + SEPARATOR)
                 .collect(Collectors.toList());
-        Files.write(Paths.get(filename), lines);
 
+        Files.write(Paths.get(filename), lines);
     }
 
 
@@ -53,10 +53,6 @@ public class FileSave {
         Files.lines(Paths.get(filename))
                 .map(line -> Arrays.asList(line.split(String.valueOf(SEPARATOR))))
                 .forEach(line -> UserService.createUser(line.get(0), line.get(1), line.get(2)));
-
-        String str = "qweq";
-        LocalTime.parse(str);
-
     }
 
 //    public static <T>  List<String>    databaseToLines(Database<T> userDB, String filename, Function<T,String> func){
