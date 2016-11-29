@@ -69,7 +69,7 @@ public class OrdersTableModel extends DefaultTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         List<Order> orders = OrdersService.getAllOrders();
         Collections.sort(orders);
-        DateTimeFormatter formater = DateTimeFormatter.ofPattern("HH:mm:ss", Locale.US);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss", Locale.US);
 
         switch (columnIndex) {
             case 0:
@@ -81,7 +81,7 @@ public class OrdersTableModel extends DefaultTableModel {
             case 3:
                 return orders.get(rowIndex).getTotalAmount();
             case 4:
-                return formater.format(orders.get(rowIndex).getLocalTime());
+                return formatter.format(orders.get(rowIndex).getLocalTime());
         }
 
         return "";

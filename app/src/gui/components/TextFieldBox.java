@@ -7,9 +7,9 @@ public class TextFieldBox {
     public  JLabel jLabel;
     public    Box box;
 
-    public TextFieldBox(String labelText, int maxTextLenght){
+    public TextFieldBox(String labelText, int maxTextLength){
         box =  Box.createHorizontalBox();
-        jTextField = new JTextField(maxTextLenght);
+        jTextField = new JTextField(maxTextLength);
         jLabel = new JLabel(labelText);
         box.add(jLabel);
         box.add(Box.createHorizontalStrut(6));

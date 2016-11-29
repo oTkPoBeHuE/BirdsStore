@@ -68,12 +68,12 @@ public class BuyWindow extends JFrame {
         mainBox.add(buttonBox.box);
     }
 
-    private void buy(String username, char[] password, String productname, String count) {
+    private void buy(String username, char[] password, String productName, String count) {
         try {
             int parse_count = Integer.parseInt(count);
             String pwd = String.copyValueOf(password);
 
-            StoreService.getInstance().buy(username, pwd, productname, parse_count);
+            StoreService.getInstance().buy(username, pwd, productName, parse_count);
         } catch (AuthorisationException | UserException | ProductException | MoneyException e) {
             GuiUtilities.printErrorMessage(e);
         } catch (Exception e) {

@@ -33,7 +33,7 @@ public class MemoryDatabase<T> implements Database<T> {
 
     @Override
     public List<T> findAll() {
-        return new ArrayList<T>(data.values());
+        return new ArrayList<>(data.values());
     }
 
     @Override

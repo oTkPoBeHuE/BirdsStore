@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BirdsStorage implements Storage {
 
-    private final Database<Products> products = new MemoryDatabase<Products>();
+    private final Database<Products> products = new MemoryDatabase<>();
 
 
     @Override

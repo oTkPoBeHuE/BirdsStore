@@ -9,7 +9,7 @@ public class PasswordFieldBox {
     public JLabel jLabel;
     public Box box;
 
-    public PasswordFieldBox(String labelText, int maxPasswordLenght) {
+    public PasswordFieldBox(String labelText, int maxPasswordLength) {
         box = Box.createHorizontalBox();
         jPasswordField = new JPasswordField(Settings.PASSWORD_MAX_LENGTH);
         jLabel = new JLabel(labelText);

@@ -18,7 +18,7 @@ public class StoreService {
         return ourInstance;
     }
 
-    public void buy(String username, String password, String productname, int count)
+    public void buy(String username, String password, String productName, int count)
             throws AuthorisationException,
             UserException,
             ProductException,
@@ -29,22 +29,22 @@ public class StoreService {
 
         Utilities.checkUserExist(username);
         Utilities.checkPassword(username, password);
-        Utilities.checkProductExist(productname);
-        Utilities.checkProductCount(productname, count);
+        Utilities.checkProductExist(productName);
+        Utilities.checkProductCount(productName, count);
 
 
         Money totalAmount = StorageService.getInstance().
-                getPrice(productname).
+                getPrice(productName).
                 multiply(Money.parseMoney(Integer.toString(count)));
 
         Utilities.checkUserMoney(username, totalAmount);
 
         Money resultAmount = UserService.getUser(username).getMoney().subtract(totalAmount);
 
-        StorageService.getInstance().release(productname, count);
+        StorageService.getInstance().release(productName, count);
         UserService.setMoney(username, resultAmount);
 
-        OrdersService.generateOrder(productname, username, totalAmount, count);
+        OrdersService.generateOrder(productName, username, totalAmount, count);
 
     }
 
