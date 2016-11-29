@@ -1,36 +1,32 @@
-package gui.users;
+package gui.orders;
 
 import gui.utils.StringConstants;
 import model.abstractstore.Money;
-import model.abstractstore.User;
-import services.UserService;
+import model.abstractstore.Order;
+import services.OrdersService;
 
 import javax.swing.event.TableModelListener;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 /**
- * Created by oTk on 27.11.2016.
+ * Created by oTk on 29.11.2016.
  */
-public class UsersTableModel extends DefaultTableModel {
-
-    private Set<TableModelListener> listeners = new HashSet<TableModelListener>();
-    ;
+public class OrdersTableModel extends DefaultTableModel {
+    private Set<TableModelListener> listeners = new HashSet<TableModelListener>();;
 
     @Override
     public int getRowCount() {
-        return UserService.getInstance().size();
+        return OrdersService.getInstance().size();
     }
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 5;
     }
 
     @Override
@@ -38,11 +34,15 @@ public class UsersTableModel extends DefaultTableModel {
 
         switch (columnIndex) {
             case 0:
-                return StringConstants.NAME;
+                return StringConstants.PRODUCT_NAME;
             case 1:
-                return StringConstants.MONEY;
+                return StringConstants.USERNAME;
             case 2:
-                return StringConstants.PASSWORD;
+                return StringConstants.COUNT;
+            case 3:
+                return StringConstants.BILL;
+            case 4:
+                return StringConstants.DATE;
         }
         return "";
     }
@@ -53,9 +53,13 @@ public class UsersTableModel extends DefaultTableModel {
             case 0:
                 return String.class;
             case 1:
-                return Money.class;
-            case 2:
                 return String.class;
+            case 2:
+                return Money.class;
+            case 3:
+                return Integer.class;
+            case 4:
+                return LocalDateTime.class;
             default:
                 return String.class; // TODO: ?????
         }
@@ -66,19 +70,21 @@ public class UsersTableModel extends DefaultTableModel {
         return false;
     }
 
-    // TODO: siglton statig bugfix
-    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        List<User> users = UserService.getInstance().getAllUsers();
-        Collections.sort(users);
+        List<Order> orders = OrdersService.getInstance().getAllOrders();
+        Collections.sort(orders);
 
         switch (columnIndex) {
             case 0:
-                return users.get(rowIndex).getName();
+                return orders.get(rowIndex).getProductName();
             case 1:
-                return users.get(rowIndex).getMoney();
+                return orders.get(rowIndex).getUserName();
             case 2:
-                return users.get(rowIndex).getPassword();
+                return orders.get(rowIndex).getCount();
+            case 3:
+                return orders.get(rowIndex).getTotalAmount();
+            case 4:
+                return orders.get(rowIndex).getLocalDateTime();
         }
 
         return "";
@@ -88,16 +94,4 @@ public class UsersTableModel extends DefaultTableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 
     }
-
-//    @Override
-//    public void addTableModelListener(TableModelListener listener) {
-//        listeners.add(listener);
-//    }
-//
-//    @Override
-//    public void removeTableModelListener(TableModelListener listener) {
-//        listeners.remove(listener);
-//    }
-
-
 }

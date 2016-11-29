@@ -1,27 +1,26 @@
 package gui;
 
+import gui.orders.OrdersTableModel;
 import gui.products.ProductsTableModel;
 import gui.users.AddUserWindow;
 import gui.users.SetMoneyWindow;
 import gui.users.UsersTableModel;
 
 import javax.swing.*;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableModel;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowListener;
 import java.util.concurrent.Executors;
-import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
+import static gui.utils.StringConstants.CREATE_USER;
+import static gui.utils.StringConstants.SET_MONEY;
 
 /**
  * Created by oTk on 27.11.2016.
  */
 public  class MainFrame extends JFrame{
+
 
     private final ScheduledExecutorService scheduler;
 
@@ -34,10 +33,20 @@ public  class MainFrame extends JFrame{
         scheduler = Executors.newSingleThreadScheduledExecutor();
         addUsersTable();
         addProductsTable();
+        addOrdersTable();
         addMenu();
         setLayout(new FlowLayout());
-        //setLayeredPane(JLayeredPane.getLayeredPaneAbove());
+    }
 
+    private void addOrdersTable(){
+        AbstractTableModel  model = new OrdersTableModel();
+        JTable table = new JTable(model);
+        getContentPane().add(new JScrollPane(table));
+        setPreferredSize(new Dimension(260, 220));
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+        update(()->model.fireTableDataChanged());
     }
 
     private void addUsersTable(){
@@ -65,8 +74,8 @@ public  class MainFrame extends JFrame{
     private void addMenu() {
         JMenuBar menuBar = new JMenuBar();
 
-        menuBar.add(createJMenuItem("Add User", new AddUserWindow()));
-        menuBar.add(createJMenuItem("Set Money", new SetMoneyWindow()));
+        menuBar.add(createJMenuItem(CREATE_USER, new AddUserWindow()));
+        menuBar.add(createJMenuItem(SET_MONEY, new SetMoneyWindow()));
 
         menuBar.add(Box.createHorizontalGlue());
         setJMenuBar(menuBar);

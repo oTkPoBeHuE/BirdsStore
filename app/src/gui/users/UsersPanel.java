@@ -9,7 +9,8 @@ import java.awt.*;
  */
 public class UsersPanel extends JPanel {
     JTable table;
-    UsersPanel(){
+
+    UsersPanel() {
         super(new BorderLayout());
         TableModel model = new UsersTableModel();
         table = new JTable(model);

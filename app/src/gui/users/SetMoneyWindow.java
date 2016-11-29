@@ -1,13 +1,12 @@
 package gui.users;
 
-import model.abstractstore.Money;
+import gui.utils.StringConstants;
 import services.UserService;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.NumberFormatter;
 import java.text.NumberFormat;
-import java.util.Locale;
 
 /**
  * Created by oTk on 29.11.2016.
@@ -28,7 +27,7 @@ public class SetMoneyWindow extends JFrame {
     Box mainBox;
 
     public SetMoneyWindow() {
-        super("Add Money");
+        super(StringConstants.ADD_MONEY);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         init();
     }
@@ -71,7 +70,7 @@ public class SetMoneyWindow extends JFrame {
 
 
         moneyBox = Box.createHorizontalBox();
-        moneyLabel = new JLabel("Money:"); // TODO: const;
+        moneyLabel = new JLabel(StringConstants.MONEY); // TODO: const;
 
         moneyField = new JTextField();
 
@@ -83,8 +82,8 @@ public class SetMoneyWindow extends JFrame {
     private void setButtonBox() {
         buttonBox = Box.createHorizontalBox();
 
-        ok = new JButton("OK"); // TODO: const
-        cancel = new JButton("Cancel"); // TODO: const
+        ok = new JButton(StringConstants.OK); // TODO: const
+        cancel = new JButton(StringConstants.CANCEL); // TODO: const
         cancel.addActionListener(e -> setVisible(false));
         ok.addActionListener(e -> addMoney(loginField.getText(), moneyField.getText()));
         buttonBox.add(ok);
@@ -93,9 +92,9 @@ public class SetMoneyWindow extends JFrame {
     }
 
 
-    private static NumberFormat getMoneyFormat(){
+    private static NumberFormat getMoneyFormat() {
         NumberFormat format = NumberFormat.getCurrencyInstance();
-       // format.setMaximumFractionDigits(0);
+        // format.setMaximumFractionDigits(0);
         NumberFormatter formatter = new NumberFormatter(format);
         formatter.setMinimum(0.01);
         formatter.setMaximum(999999999.0);
@@ -103,7 +102,6 @@ public class SetMoneyWindow extends JFrame {
         formatter.setOverwriteMode(true);
         return format;
     }
-
 
 
     private void addMoney(String username, String money) {

@@ -1,11 +1,9 @@
 package gui.products;
 
+import gui.utils.StringConstants;
 import model.abstractstore.Money;
-import model.abstractstore.Product;
 import model.abstractstore.Storage;
-import model.abstractstore.User;
-import services.BirdsStorageService;
-import services.UserService;
+import services.StorageService;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +20,7 @@ public class ProductsTableModel extends DefaultTableModel {
 
     @Override
     public int getRowCount() {
-        return BirdsStorageService.getInstance().size();
+        return StorageService.getInstance().size();
     }
 
     @Override
@@ -35,11 +33,11 @@ public class ProductsTableModel extends DefaultTableModel {
 
         switch (columnIndex) {
             case 0:
-                return "Name";
+                return StringConstants.NAME;
             case 1:
-                return "Price";
+                return StringConstants.PRICE;
             case 2:
-                return "Count";
+                return StringConstants.COUNT;
         }
         return "";
     }
@@ -64,7 +62,7 @@ public class ProductsTableModel extends DefaultTableModel {
     }
 
     public Object getValueAt(int rowIndex, int columnIndex) {
-        List<Storage.Products> products = BirdsStorageService.getInstance().getAllProducts();
+        List<Storage.Products> products = StorageService.getInstance().getAllProducts();
         Collections.sort(products);
 
         switch (columnIndex) {

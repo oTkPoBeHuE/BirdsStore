@@ -1,19 +1,18 @@
 package gui.users;
 
-import gui.MainForm;
-import gui.MainFrame;
-import javafx.scene.control.PasswordField;
+import gui.utils.StringConstants;
 import services.UserService;
-import sun.security.util.Password;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.AbstractTableModel;
+
+import static gui.utils.StringConstants.USERNAME;
 
 /**
  * Created by oTk on 28.11.2016.
  */
 public class AddUserWindow extends JFrame {
+
 
     JTextField loginField;
     JPasswordField passwordField;
@@ -30,7 +29,7 @@ public class AddUserWindow extends JFrame {
     Box mainBox;
 
     public AddUserWindow() {
-        super("Add User");
+        super(StringConstants.ADD_USER);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         init();
     }
@@ -61,7 +60,7 @@ public class AddUserWindow extends JFrame {
     private void setLoginBox() {
         loginBox = Box.createHorizontalBox();
 
-        loginLabel = new JLabel("Username :"); // TODO: const;
+        loginLabel = new JLabel(StringConstants.USERNAME); // TODO: const;
         loginField = new JTextField(15);
 
         loginBox.add(loginLabel);
@@ -72,7 +71,7 @@ public class AddUserWindow extends JFrame {
     private void setPasswordBox() {
         passwordBox = Box.createHorizontalBox();
 
-        passwordLabel = new JLabel("Password:"); // TODO: const;
+        passwordLabel = new JLabel(StringConstants.PASSWORD); // TODO: const;
         passwordField = new JPasswordField(15); // TODO: password size const;
 
         passwordBox.add(passwordLabel);
@@ -83,8 +82,8 @@ public class AddUserWindow extends JFrame {
     private void setButtonBox() {
         buttonBox = Box.createHorizontalBox();
 
-        ok = new JButton("OK"); // TODO: const
-        cancel = new JButton("Cancel"); // TODO: const
+        ok = new JButton(StringConstants.OK); // TODO: const
+        cancel = new JButton(StringConstants.CANCEL); // TODO: const
         cancel.addActionListener(e -> setVisible(false));
         ok.addActionListener(e -> addUser(loginField.getText(), passwordField.getPassword()));
         buttonBox.add(ok);
