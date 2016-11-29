@@ -1,5 +1,7 @@
 package services;
 
+import model.abstractstore.Money;
+
 /**
  * Created by oTk on 29.11.2016.
  */
@@ -14,29 +16,40 @@ public class StoreService {
     }
 
     public void buy(String username, String password, String productname, int count){
-        checkUsername(username);
+        checkUserExist(username);
         checkPassword(username, password);
         checkProduct(productname);
         checkProductCount(productname, count);
 
 
+        Money totalAmount = StorageService.getInstance().getPrice(productname).pow(count);
+        checkUserMoney(productname, totalAmount);
+
+        UserService.getInstance().getUser(username);
+
+        StorageService.getInstance().release(productname, count);
+        UserService.getInstance().setMoney(username, UserService.getInstance().getUser(username).getMoney().subtract(totalAmount));
 
     }
 
-    private void checkPassword(String username, String password) {
+    public void checkPassword(String username, String password) {
         //TODO:: exception
     }
 
-    private void checkUsername(String username) {
+    public void checkUserExist(String username) {
         //TODO:: exception
     }
 
-
-    private void checkProduct(String name){
+    public void checkProduct(String name){
         //TODO:: exception
     }
-    private void checkProductCount(String productName, int  count){
+    public void checkProductCount(String productName, int  count){
         //TODO:: exception
+    }
+    public void checkUserMoney(String username, Money totalAmount){
+        if(!UserService.getInstance().getUser(username).getMoney().amountExist(totalAmount)){
+            //TODO:: exception
+        }
     }
 
 

@@ -11,8 +11,11 @@ public final class  Money implements Comparable {
     public static Money  parseMoney(String s){
         return new Money(new BigDecimal(s));
     }
+    public static Money  parseMoney(BigDecimal amount){
+        return new Money(amount);
+    }
 
-    public Money(BigDecimal amount) {
+    private Money(BigDecimal amount) {
         this.amount = amount;
     }
 
@@ -68,5 +71,9 @@ public final class  Money implements Comparable {
 
     public boolean amountExist(Money totalAmount) {
         return   compareTo(totalAmount) >= 0;
+    }
+
+    public Money pow(int count) {
+        return newMoney(amount.pow(count));
     }
 }

@@ -54,4 +54,8 @@ public class UserService {
     public void setMoney(String username, String money) {
         getUser(username).setMoney(money);
     }
+
+    public void setMoney(String username, Money money) {
+        getUser(username).setMoney(money);
+    }
 }

@@ -56,4 +56,8 @@ public class StorageService {
         return storage.getAllProducts();
     }
 
+    public Money getPrice(String productName){
+        return storage.findProduct(productName).getPrice();
+    }
+
 }

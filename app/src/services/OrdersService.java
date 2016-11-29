@@ -32,8 +32,8 @@ public class OrdersService {
         orders.save(order.getID(), order);
     }
 
-    private Order generateOrder(Product product, User user, Money totalAmount, int count){
-        return new Order(generateID(), product.getName(), user.getName(), totalAmount, count, LocalDateTime.now());
+    private Order generateOrder(String productname, String username, Money totalAmount, int count){
+        return new Order(generateID(), productname, username, totalAmount, count, LocalDateTime.now());
     }
 
     private String generateID() {
@@ -44,10 +44,10 @@ public class OrdersService {
         user.setMoney(user.getMoney().subtract(totalAmount));
     }
 
-    private void checkUserMoney(User user, Money totalAmount){
-        if(!user.getMoney().amountExist(totalAmount));
-        //TODO:: exception
-    }
+//    private void checkUserMoney(User user, Money totalAmount){
+//        if(!user.getMoney().amountExist(totalAmount));
+//        //TODO:: exception
+//    }
 
     public Money getBill(Product product, int count, BiFunction<Product, Integer, Money> discount){
         return discount.apply(product, count);
