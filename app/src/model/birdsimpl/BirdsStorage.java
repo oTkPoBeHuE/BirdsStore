@@ -4,6 +4,7 @@ import data.Database;
 import data.MemoryDatabase;
 import model.abstractstore.Product;
 import model.abstractstore.Storage;
+import utils.Utilities;
 
 import java.util.List;
 
@@ -14,7 +15,6 @@ public class BirdsStorage implements Storage {
 
     @Override
     public void addItem(Product product, int count) {
-        //TODO: exception
         products.save(product.getName(), new Products(product, count));
     }
 

@@ -54,7 +54,7 @@ public class UsersTableModel extends DefaultTableModel {
             case 2:
                 return String.class;
             default:
-                return String.class; // TODO: ?????
+                return String.class;
         }
     }
 
@@ -63,7 +63,6 @@ public class UsersTableModel extends DefaultTableModel {
         return false;
     }
 
-    // TODO: siglton statig bugfix
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         List<User> users = UserService.getAllUsers();

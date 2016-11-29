@@ -4,9 +4,6 @@ import gui.utils.Settings;
 
 import javax.swing.*;
 
-/**
- * Created by oTk on 29.11.2016.
- */
 public class PasswordFieldBox {
     public JPasswordField jPasswordField;
     public JLabel jLabel;

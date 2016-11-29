@@ -6,9 +6,9 @@ import java.util.List;
 public interface Storage {
     void addItem(Product product, int count);
 
-    void push(String productName, int count); // TODO: rename
+    void push(String productName, int count);
 
-    void put(String productName, int count); // TODO: rename
+    void put(String productName, int count);
 
     int getCount(String productName);
 

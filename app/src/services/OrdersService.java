@@ -9,9 +9,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by oTk on 27.11.2016.
- */
+
 public class OrdersService {
     private static Database<Order> orders = new MemoryDatabase<>();
 

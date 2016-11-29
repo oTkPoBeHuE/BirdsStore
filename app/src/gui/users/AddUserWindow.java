@@ -12,9 +12,6 @@ import services.UserService;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-/**
- * Created by oTk on 28.11.2016.
- */
 public class AddUserWindow extends JFrame {
 
 

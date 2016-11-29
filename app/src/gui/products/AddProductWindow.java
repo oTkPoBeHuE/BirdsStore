@@ -9,9 +9,6 @@ import services.StorageService;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-/**
- * Created by omsk29 on 11/29/2016.
- */
 public class AddProductWindow extends JFrame {
 
 

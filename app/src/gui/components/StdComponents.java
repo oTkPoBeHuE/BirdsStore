@@ -5,9 +5,6 @@ import gui.utils.StringConstants;
 
 import java.awt.event.ActionListener;
 
-/**
- * Created by oTk on 29.11.2016.
- */
 public final class StdComponents {
     private StdComponents(){};
 

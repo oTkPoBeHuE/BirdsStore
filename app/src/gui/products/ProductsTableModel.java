@@ -12,12 +12,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by oTk on 29.11.2016.
- */
+
 public class ProductsTableModel extends DefaultTableModel {
     private Set<TableModelListener> listeners = new HashSet<TableModelListener>();
-    ;
 
     @Override
     public int getRowCount() {

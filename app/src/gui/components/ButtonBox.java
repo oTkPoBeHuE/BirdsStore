@@ -3,9 +3,6 @@ package gui.components;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-/**
- * Created by omsk29 on 11/29/2016.
- */
 public class ButtonBox {
     public Box box;
     public JButton leftButton;

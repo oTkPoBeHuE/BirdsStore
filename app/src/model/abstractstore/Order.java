@@ -3,8 +3,6 @@ package model.abstractstore;
 import java.time.LocalTime;
 
 public class Order implements Comparable {
-    //// TODO:: Add time % date
-    //// TODO::  Хранить общую стоимость сделки или цену за одно изделме? (есть скидки, поэтому не очевидно)
     private final String productName;
     private final String userName;
     private final Money totalAmount;

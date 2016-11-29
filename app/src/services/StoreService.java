@@ -8,9 +8,6 @@ import model.abstractstore.Money;
 import utils.Utilities;
 
 
-/**
- * Created by oTk on 29.11.2016.
- */
 public class StoreService {
     private static StoreService ourInstance = new StoreService();
 

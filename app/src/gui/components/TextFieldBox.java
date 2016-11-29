@@ -2,9 +2,6 @@ package gui.components;
 
 import javax.swing.*;
 
-/**
- * Created by omsk29 on 11/29/2016.
- */
 public class TextFieldBox {
     public JTextField jTextField ;
     public  JLabel jLabel;

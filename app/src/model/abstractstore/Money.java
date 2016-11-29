@@ -3,8 +3,6 @@ package model.abstractstore;
 import java.math.BigDecimal;
 
 public final class Money implements Comparable {
-    //// TODO: Возможно стоит убрать интерфейс  Comparable и добавить метод которые сранивает числа
-    // Objects.requireNonNull() - проверяет на null и бросает  NullPointerException если аргумент имеет значение NUL
 
     private final BigDecimal amount;
 

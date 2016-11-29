@@ -1,8 +1,5 @@
 package model.abstractstore;
 
-/**
- * Created by oTk on 26.11.2016.
- */
 public class User implements Comparable {
     private final String name;
     private String password;

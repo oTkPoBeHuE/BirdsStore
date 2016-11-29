@@ -17,9 +17,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 
-/**
- * Created by oTk on 27.11.2016.
- */
+
 public class MainFrame extends JFrame {
 
 

@@ -12,9 +12,6 @@ import services.UserService;
 
 import java.util.regex.Pattern;
 
-/**
- * Created by oTk on 29.11.2016.
- */
 public final class Utilities {
 
     private Utilities() {
@@ -77,8 +74,5 @@ public final class Utilities {
         }
     }
 
-//    public static boolean isFormatIncorrect(String str, int min, int max){
-//       return (str == null || str.length() > max || str.length() < min );
-//    }
 
 }

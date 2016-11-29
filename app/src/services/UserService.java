@@ -9,9 +9,6 @@ import utils.Utilities;
 
 import java.util.List;
 
-/**
- * Created by oTk on 27.11.2016.
- */
 public class UserService {
     private static Database<User> users = new MemoryDatabase<>();
 
@@ -30,7 +27,6 @@ public class UserService {
     }
 
     private static void createUser(String username, String password, Money money) {
-        //TODO: checkUser()
         users.save(username, new User(username, password, money));
     }
 
