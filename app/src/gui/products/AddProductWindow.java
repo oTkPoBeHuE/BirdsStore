@@ -2,6 +2,8 @@ package gui.products;
 
 import gui.components.ButtonBox;
 import gui.components.TextFieldBox;
+import gui.utils.Settings;
+import gui.utils.StringConstants;
 import services.StorageService;
 
 import javax.swing.*;
@@ -19,7 +21,7 @@ public class AddProductWindow extends JFrame {
     public Box mainBox;
 
     public AddProductWindow() {
-        super("Add Product");
+        super(StringConstants.ADD_PRODUCT);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         init();
     }
@@ -32,14 +34,14 @@ public class AddProductWindow extends JFrame {
     }
 
     private void setMainBox() {
-        productNameBox = new TextFieldBox("Product name:", 15);
-        productPriceBox = new TextFieldBox("Product price:", 15);
+        productNameBox = new TextFieldBox(StringConstants.PRODUCT_NAME, Settings.PRODUCT_NAME_MAX_LENGTH);
+        productPriceBox = new TextFieldBox(StringConstants.PRODUCT_PRICE, Settings.MONEY_MAX_CHAR_LENGTH);
         buttonBox = new ButtonBox(
-                "OK",
+                StringConstants.OK,
                 e -> StorageService.getInstance().addBirdsItem(
                         productNameBox.jTextField.getText(),
                         productPriceBox.jTextField.getText()),
-                "Cancel",
+                StringConstants.CANCEL,
                 e -> setVisible(false));
 
 
@@ -51,7 +53,7 @@ public class AddProductWindow extends JFrame {
         mainBox.add(Box.createVerticalStrut(12));
         mainBox.add(productPriceBox.box);
         mainBox.add(Box.createVerticalStrut(17));
-        mainBox.add(buttonBox.buttonBox);
+        mainBox.add(buttonBox.box);
     }
 
 

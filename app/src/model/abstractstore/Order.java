@@ -1,8 +1,12 @@
 package model.abstractstore;
 
-import model.abstractstore.Money;
-
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_TIME;
+import static java.time.format.DateTimeFormatter.ISO_TIME;
 
 public class Order implements Comparable {
     //// TODO:: Add time % date
@@ -11,16 +15,17 @@ public class Order implements Comparable {
     private final String userName;
     private final Money totalAmount;
     private final int count;
-    private final LocalDateTime localDateTime ;
+    private final LocalTime localTime ;
     private final String ID;
 
-    public Order(String ID, String productName, String userName, Money totalAmount, int count, LocalDateTime localDateTime) {
+    public Order(String ID, String productName, String userName, Money totalAmount, int count, LocalTime localTime) {
         this.ID = ID;
         this.productName = productName;
         this.userName = userName;
         this.totalAmount = totalAmount;
         this.count = count;
-        this.localDateTime = localDateTime;
+        this.localTime = localTime;
+
     }
 
     public String getProductName() {
@@ -39,13 +44,13 @@ public class Order implements Comparable {
         return count;
     }
 
-    public LocalDateTime getLocalDateTime() {
-        return localDateTime;
+    public LocalTime getLocalTime() {
+        return localTime;
     }
 
     @Override
     public int compareTo(Object o) {
-        return localDateTime.compareTo(((Order)o).getLocalDateTime());
+        return localTime.compareTo(((Order)o).getLocalTime());
     }
 
     public String getID() {

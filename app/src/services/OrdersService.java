@@ -8,6 +8,7 @@ import model.abstractstore.Product;
 import model.abstractstore.User;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.BiFunction;
@@ -22,22 +23,19 @@ public class OrdersService {
     }
 
 
-    private static Order generateOrder(String productname, String username, Money totalAmount, int count){
-        return new Order(generateID(), productname, username, totalAmount, count, LocalDateTime.now());
+    public static void generateOrder(String productName, String username, Money totalAmount, int count){
+        Order order = new Order(generateID(),  productName, username, totalAmount, count, LocalTime.now());
+        orders.save( order.getID(), order);
     }
 
     private static  String generateID() {
         return UUID.randomUUID().toString();
     }
 
-    private static  void payBill(User user, Money totalAmount){
-        user.setMoney(user.getMoney().subtract(totalAmount));
-    }
 
-
-    public static  Money getBill(Product product, int count, BiFunction<Product, Integer, Money> discount){
-        return discount.apply(product, count);
-    }
+//    public static  Money getBill(Product product, int count, BiFunction<Product, Integer, Money> discount){
+//        return discount.apply(product, count);
+//    }
 
     public static  int size() {
         return orders.size();

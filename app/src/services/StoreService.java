@@ -44,6 +44,8 @@ public class StoreService {
         StorageService.getInstance().release(productname, count);
         UserService.setMoney(username, resultAmount);
 
+        OrdersService.generateOrder(productname, username, totalAmount, count);
+
     }
 
 

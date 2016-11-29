@@ -1,10 +1,17 @@
 package gui.users;
 
+import gui.components.ButtonBox;
+import gui.components.PasswordFieldBox;
+import gui.components.TextFieldBox;
+import gui.utils.Settings;
 import gui.utils.StringConstants;
+import javafx.scene.control.PasswordField;
 import services.UserService;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import java.awt.*;
 
 import static gui.utils.StringConstants.USERNAME;
 
@@ -14,18 +21,9 @@ import static gui.utils.StringConstants.USERNAME;
 public class AddUserWindow extends JFrame {
 
 
-    JTextField loginField;
-    JPasswordField passwordField;
-
-    JLabel loginLabel;
-    JLabel passwordLabel;
-
-    JButton ok;
-    JButton cancel;
-
-    Box loginBox;
-    Box passwordBox;
-    Box buttonBox;
+    TextFieldBox loginBox;
+    PasswordFieldBox passwordFieldBox;
+    ButtonBox buttonBox;
     Box mainBox;
 
     public AddUserWindow() {
@@ -42,54 +40,26 @@ public class AddUserWindow extends JFrame {
     }
 
     private void setMainBox() {
-        setLoginBox();
-        setPasswordBox();
-        setButtonBox();
+        loginBox = new TextFieldBox(StringConstants.USERNAME , Settings.USERNAME_MAX_LENGTH);
+        passwordFieldBox = new PasswordFieldBox(StringConstants.PASSWORD, Settings.PASSWORD_MAX_LENGTH);
 
-        loginLabel.setPreferredSize(passwordLabel.getPreferredSize());
+        buttonBox = new ButtonBox(
+                StringConstants.CREATE,
+                e -> addUser(loginBox.jTextField.getText(), passwordFieldBox.jPasswordField.getPassword()),
+                StringConstants.CANCEL,
+                e -> setVisible(false));
+
+        loginBox.jLabel.setPreferredSize(passwordFieldBox.jLabel.getPreferredSize());
 
         mainBox = Box.createVerticalBox();
         mainBox.setBorder(new EmptyBorder(12, 12, 12, 12));
-        mainBox.add(loginBox);
+        mainBox.add(loginBox.box);
         mainBox.add(Box.createVerticalStrut(12));
-        mainBox.add(passwordBox);
+        mainBox.add(passwordFieldBox.box);
         mainBox.add(Box.createVerticalStrut(17));
-        mainBox.add(buttonBox);
+        mainBox.add(buttonBox.box);
     }
 
-    private void setLoginBox() {
-        loginBox = Box.createHorizontalBox();
-
-        loginLabel = new JLabel(StringConstants.USERNAME); // TODO: const;
-        loginField = new JTextField(15);
-
-        loginBox.add(loginLabel);
-        loginBox.add(Box.createHorizontalStrut(6));   // отступ от края для кнопок
-        loginBox.add(loginField);
-    }
-
-    private void setPasswordBox() {
-        passwordBox = Box.createHorizontalBox();
-
-        passwordLabel = new JLabel(StringConstants.PASSWORD); // TODO: const;
-        passwordField = new JPasswordField(15); // TODO: password size const;
-
-        passwordBox.add(passwordLabel);
-        passwordBox.add(Box.createHorizontalStrut(6));
-        passwordBox.add(passwordField);
-    }
-
-    private void setButtonBox() {
-        buttonBox = Box.createHorizontalBox();
-
-        ok = new JButton(StringConstants.OK); // TODO: const
-        cancel = new JButton(StringConstants.CANCEL); // TODO: const
-        cancel.addActionListener(e -> setVisible(false));
-        ok.addActionListener(e -> addUser(loginField.getText(), passwordField.getPassword()));
-        buttonBox.add(ok);
-        buttonBox.add(Box.createHorizontalStrut(12));
-        buttonBox.add(cancel);
-        }
 
 
 

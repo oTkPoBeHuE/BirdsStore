@@ -7,13 +7,13 @@ import java.awt.event.ActionListener;
  * Created by omsk29 on 11/29/2016.
  */
 public class ButtonBox {
-    public Box buttonBox;
+    public Box box;
     public JButton leftButton;
     public JButton rightButton;
 
     public ButtonBox(String leftButtonText, ActionListener leftButtonActionListener,
                      String rightButtonText, ActionListener rightButtonActionListener) {
-        buttonBox = Box.createHorizontalBox();
+        box = Box.createHorizontalBox();
 
         leftButton = new JButton(leftButtonText);
         rightButton = new JButton(rightButtonText);
@@ -21,8 +21,8 @@ public class ButtonBox {
         leftButton.addActionListener(leftButtonActionListener);
         rightButton.addActionListener(rightButtonActionListener);
 
-        buttonBox.add(leftButton);
-        buttonBox.add(Box.createHorizontalStrut(12));
-        buttonBox.add(rightButton);
+        box.add(leftButton);
+        box.add(Box.createHorizontalStrut(12));
+        box.add(rightButton);
     }
 }

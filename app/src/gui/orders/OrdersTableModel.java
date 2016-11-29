@@ -8,10 +8,8 @@ import services.OrdersService;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 /**
  * Created by oTk on 29.11.2016.
@@ -73,6 +71,7 @@ public class OrdersTableModel extends DefaultTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         List<Order> orders = OrdersService.getAllOrders();
         Collections.sort(orders);
+        DateTimeFormatter formater = DateTimeFormatter.ofPattern("HH:mm:ss", Locale.US);
 
         switch (columnIndex) {
             case 0:
@@ -84,7 +83,7 @@ public class OrdersTableModel extends DefaultTableModel {
             case 3:
                 return orders.get(rowIndex).getTotalAmount();
             case 4:
-                return orders.get(rowIndex).getLocalDateTime();
+                return formater.format(orders.get(rowIndex).getLocalTime());
         }
 
         return "";
