@@ -37,4 +37,9 @@ public class MemoryDatabase<T> implements Database<T> {
     public List<T> findAll() {
         return new ArrayList<T>(data.values());
     }
+
+    @Override
+    public void clear() {
+        data.clear();
+    }
 }

@@ -58,7 +58,6 @@ public class BirdsStoreApplication {
                 MoneyException e) {
             e.printStackTrace();
         }
-
         javax.swing.SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
 }

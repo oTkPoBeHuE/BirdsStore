@@ -4,9 +4,7 @@ import gui.orders.BuyWindow;
 import gui.orders.OrdersTableModel;
 import gui.products.AddProductWindow;
 import gui.products.ProductsTableModel;
-import gui.users.AddUserWindow;
-import gui.users.SetMoneyWindow;
-import gui.users.UsersTableModel;
+import gui.users.*;
 import gui.utils.StringConstants;
 
 import javax.swing.*;
@@ -57,6 +55,8 @@ public class MainFrame extends JFrame {
         menuBar.add(createJMenuItem(StringConstants.SET_MONEY, new SetMoneyWindow()));
         menuBar.add(createJMenuItem(StringConstants.ADD_PRODUCT, new AddProductWindow()));
         menuBar.add(createJMenuItem(StringConstants.BUY, new BuyWindow()));
+        menuBar.add(createJMenuItem(StringConstants.USERS_SAVE, new SaveUsersWindow()));
+        menuBar.add(createJMenuItem(StringConstants.USERS_READ, new ReadUsersWindow()));
 
         menuBar.add(Box.createHorizontalGlue());
         setJMenuBar(menuBar);

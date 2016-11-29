@@ -23,6 +23,14 @@ public final class StringConstants {
     public static final String CREATE = "Create";
     public static final String PRODUCT_PRICE = "Product price:";
     public static final String BUY = "Buy";
+    public static final String BIRDS_STORE_EXCEPTION = "BirdsStoreException";
+    public static final String UNKNOWN_ERROR = "Unknown error";
+    public static final String SORRY = "Sorry! ";
+    public static final String FILENAME = "Filename: ";
+    public static final String SAVE = "Save: ";
+    public static final String READ= "Read: ";
+    public static final String USERS_SAVE = "Save users";
+    public static final String USERS_READ = "Read users";
 
     private StringConstants() {
     }

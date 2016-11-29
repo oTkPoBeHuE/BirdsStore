@@ -1,12 +1,14 @@
 package services;
 
 import data.Database;
+import data.FileSave;
 import data.MemoryDatabase;
 import exceptions.UserException;
 import model.abstractstore.Money;
 import model.abstractstore.User;
 import utils.Utilities;
 
+import java.io.IOException;
 import java.util.List;
 
 public class UserService {
@@ -49,5 +51,13 @@ public class UserService {
     public static void setMoney(String username, Money money) throws UserException {
         Utilities.checkUserNameFormat(username);
         getUser(username).setMoney(money);
+    }
+
+    public static void save(String filename) throws IOException {
+        FileSave.saveDB(users, filename);
+    }
+
+    public static void clear() {
+        users.clear();
     }
 }

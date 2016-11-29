@@ -37,12 +37,6 @@ public class AddUserWindow extends JFrame {
         loginBox = StdComponents.getUsernameBox();
         passwordFieldBox = StdComponents.getPasswordFieldBox();
 
-        buttonBox = new ButtonBox(
-                StringConstants.CREATE,
-                e -> addUser(loginBox.jTextField.getText(), passwordFieldBox.jPasswordField.getPassword()),
-                StringConstants.CANCEL,
-                e -> setVisible(false));
-
         buttonBox = StdComponents.getButtonBox(
                 StringConstants.CREATE,
                 e -> addUser(loginBox.jTextField.getText(),

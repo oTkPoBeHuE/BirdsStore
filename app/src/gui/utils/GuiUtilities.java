@@ -4,9 +4,6 @@ import exceptions.BirdsStoreException;
 
 import javax.swing.*;
 
-/**
- * Created by oTk on 29.11.2016.
- */
 public final class GuiUtilities {
 
     private GuiUtilities() {
@@ -14,15 +11,15 @@ public final class GuiUtilities {
 
     public static void printErrorMessage(Exception ex) {
         JOptionPane.showMessageDialog(null,
-                ex.getMessage(),
-                "Unknown error",
+                StringConstants.SORRY + ex.getMessage(),
+                StringConstants.UNKNOWN_ERROR,
                 JOptionPane.ERROR_MESSAGE);
     }
 
     public static void printErrorMessage(BirdsStoreException ex) {
         JOptionPane.showMessageDialog(null,
                 ex.getMessage(),
-                "BirdsStoreException",
+                StringConstants.BIRDS_STORE_EXCEPTION,
                 JOptionPane.PLAIN_MESSAGE);
     }
 }

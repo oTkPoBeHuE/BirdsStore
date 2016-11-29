@@ -15,4 +15,5 @@ public interface Database<T> {
 
     boolean containsKey(String key);
     int size();
+    void clear();
 }
