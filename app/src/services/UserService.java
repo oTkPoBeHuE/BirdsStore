@@ -36,7 +36,6 @@ public class UserService {
         createUser(username, password, Money.parseMoney(money));
     }
 
-
     public static boolean containsUser(String username) {
         return users.containsKey(username);
     }
