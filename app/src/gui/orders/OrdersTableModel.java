@@ -13,7 +13,7 @@ import java.util.*;
 
 
 public class OrdersTableModel extends DefaultTableModel {
-    private Set<TableModelListener> listeners = new HashSet<TableModelListener>();
+    private Set<TableModelListener> listeners = new HashSet<>();
 
     @Override
     public int getRowCount() {

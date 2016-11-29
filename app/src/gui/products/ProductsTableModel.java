@@ -14,7 +14,7 @@ import java.util.Set;
 
 
 public class ProductsTableModel extends DefaultTableModel {
-    private Set<TableModelListener> listeners = new HashSet<TableModelListener>();
+    private Set<TableModelListener> listeners = new HashSet<>();
 
     @Override
     public int getRowCount() {

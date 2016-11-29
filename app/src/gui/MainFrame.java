@@ -46,7 +46,7 @@ public class MainFrame extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-        update(() -> model.fireTableDataChanged());
+        update(model::fireTableDataChanged);
     }
 
     private void addMenu() {

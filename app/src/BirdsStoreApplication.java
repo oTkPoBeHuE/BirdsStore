@@ -16,6 +16,6 @@ public class BirdsStoreApplication {
     }
 
     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(() -> createAndShowGUI());
+        javax.swing.SwingUtilities.invokeLater(BirdsStoreApplication::createAndShowGUI);
     }
 }
