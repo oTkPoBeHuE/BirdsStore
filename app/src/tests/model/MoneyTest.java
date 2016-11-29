@@ -20,23 +20,23 @@ public class MoneyTest {
 
     @Test
     public void add() throws Exception {
-        assertEquals(NUMBER1_ADD_NUMBER2,  new Money(NUMBER1).add(NUMBER2).toString());
-        assertEquals(NUMBER1_ADD_NUMBER3,  new Money(NUMBER1).add(NUMBER3).toString());
+        assertEquals(NUMBER1_ADD_NUMBER2,  Money.parseMoney(NUMBER1).add(NUMBER2).toString());
+        assertEquals(NUMBER1_ADD_NUMBER3,  Money.parseMoney(NUMBER1).add(NUMBER3).toString());
     }
 
     @Test
     public void subtract() throws Exception {
-        assertEquals(NUMBER1_SUB_NUMBER2,  new Money(NUMBER1).subtract(NUMBER2).toString());
-        assertEquals(NUMBER2_SUB_NUMBER1,  new Money(NUMBER2).subtract(NUMBER1).toString());
-        assertEquals(NUMBER1_SUB_NUMBER1,  new Money(NUMBER1).subtract(NUMBER1).toString());
-        assertEquals(NUMBER1_SUB_NUMBER3,  new Money(NUMBER1).subtract(NUMBER3).toString());
+        assertEquals(NUMBER1_SUB_NUMBER2,  Money.parseMoney(NUMBER1).subtract(NUMBER2).toString());
+        assertEquals(NUMBER2_SUB_NUMBER1,  Money.parseMoney(NUMBER2).subtract(NUMBER1).toString());
+        assertEquals(NUMBER1_SUB_NUMBER1,  Money.parseMoney(NUMBER1).subtract(NUMBER1).toString());
+        assertEquals(NUMBER1_SUB_NUMBER3,  Money.parseMoney(NUMBER1).subtract(NUMBER3).toString());
     }
 
     @Test
     public void compareTo() throws Exception {
-        assertTrue(new Money(NUMBER1).compareTo(new Money(NUMBER2)) > 0);
-        assertTrue(new Money(NUMBER2).compareTo(new Money(NUMBER1)) < 0);
-        assertTrue(new Money(NUMBER1).compareTo(new Money(NUMBER1)) == 0);
+        assertTrue(Money.parseMoney(NUMBER1).compareTo(Money.parseMoney(NUMBER2)) > 0);
+        assertTrue(Money.parseMoney(NUMBER2).compareTo(Money.parseMoney(NUMBER1)) < 0);
+        assertTrue(Money.parseMoney(NUMBER1).compareTo(Money.parseMoney(NUMBER1)) == 0);
     }
 
 }

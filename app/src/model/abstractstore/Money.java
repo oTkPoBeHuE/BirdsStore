@@ -8,8 +8,8 @@ public final class  Money implements Comparable {
 
     private final BigDecimal  amount;
 
-    public Money(String amount){
-        this(new BigDecimal(amount));
+    public static Money  parseMoney(String s){
+        return new Money(new BigDecimal(s));
     }
 
     public Money(BigDecimal amount) {
@@ -21,7 +21,7 @@ public final class  Money implements Comparable {
     }
 
     public Money add(String amount){
-        return  this.add(new Money(amount));
+        return  this.add(parseMoney(amount));
     }
 
     public Money subtract(Money other){
@@ -29,7 +29,7 @@ public final class  Money implements Comparable {
     }
 
     public Money subtract(String amount){
-        return  this.subtract(new Money(amount));
+        return  this.subtract(parseMoney(amount));
     }
     
     private Money newMoney(BigDecimal  amount) {

@@ -4,20 +4,15 @@ import model.abstractstore.Product;
 import model.abstractstore.Storage;
 import data.Database;
 import data.MemoryDatabase;
+import model.abstractstore.User;
+
+import java.util.List;
 
 public class BirdsStorage implements Storage {
 
     private final Database<Products> products = new MemoryDatabase<Products>();
 
-    private final class Products {
-        final Product product;
-        int count;
 
-        public Products(Product product, int count) {
-            this.product = product;
-            this.count = count;
-        }
-    }
 
     @Override
     public void addItem(Product product, int count) {
@@ -27,17 +22,17 @@ public class BirdsStorage implements Storage {
 
     @Override
     public void push(String productName, int count) {
-        products.read(productName).count += count;
+        products.read(productName).add(count);
     }
 
     @Override
     public void put(String productName, int count) {
-        products.read(productName).count -= count;
+        products.read(productName).sub(count);
     }
 
     @Override
     public int getCount(String productName) {
-        return products.read(productName).count;
+        return products.read(productName).getCount();
     }
 
     @Override
@@ -47,6 +42,16 @@ public class BirdsStorage implements Storage {
 
     @Override
     public Product findProduct(String productName) {
-        return products.read(productName).product;
+        return products.read(productName).getProduct();
+    }
+
+    @Override
+    public int size() {
+        return products.size();
+    }
+
+    @Override
+    public List<Products> getAllProducts(){
+        return products.toList();
     }
 }

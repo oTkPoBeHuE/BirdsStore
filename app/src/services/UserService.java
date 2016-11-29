@@ -27,7 +27,7 @@ public class UserService {
     }
 
     public void  addUser(String username, String password){
-        createUser(username, password, new Money("0"));
+        createUser(username, password, Money.parseMoney("0"));
     }
 
     private void createUser(String username, String password, Money money){

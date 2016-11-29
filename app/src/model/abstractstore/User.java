@@ -34,7 +34,7 @@ public class User implements  Comparable {
         this.money = money;
     }
     public void setMoney(String moneyString) {
-        this.money = new Money(moneyString);
+        this.money = Money.parseMoney(moneyString);
     }
 
     @Override

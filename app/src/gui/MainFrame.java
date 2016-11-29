@@ -1,5 +1,6 @@
 package gui;
 
+import gui.products.ProductsTableModel;
 import gui.users.AddUserWindow;
 import gui.users.SetMoneyWindow;
 import gui.users.UsersTableModel;
@@ -32,7 +33,10 @@ public  class MainFrame extends JFrame{
         super(title);
         scheduler = Executors.newSingleThreadScheduledExecutor();
         addUsersTable();
+        addProductsTable();
         addMenu();
+        setLayout(new FlowLayout());
+        //setLayeredPane(JLayeredPane.getLayeredPaneAbove());
 
     }
 
@@ -47,7 +51,16 @@ public  class MainFrame extends JFrame{
         update(()->model.fireTableDataChanged());
     }
 
-
+    private void addProductsTable() {
+        AbstractTableModel  model = new ProductsTableModel();
+        JTable table = new JTable(model);
+        getContentPane().add(new JScrollPane(table));
+        setPreferredSize(new Dimension(260, 220));
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+        update(()->model.fireTableDataChanged());
+    }
 
     private void addMenu() {
         JMenuBar menuBar = new JMenuBar();

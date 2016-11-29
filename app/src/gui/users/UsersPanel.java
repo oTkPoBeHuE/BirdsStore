@@ -15,6 +15,4 @@ public class UsersPanel extends JPanel {
         table = new JTable(model);
         setVisible(true);
     }
-
-
 }
