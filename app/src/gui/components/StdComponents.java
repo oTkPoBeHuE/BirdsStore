@@ -6,7 +6,7 @@ import gui.utils.StringConstants;
 import java.awt.event.ActionListener;
 
 public final class StdComponents {
-    private StdComponents(){}
+    private StdComponents(){};
 
     public static TextFieldBox  getUsernameBox(){
         return new TextFieldBox(StringConstants.USERNAME , Settings.USERNAME_MAX_LENGTH);

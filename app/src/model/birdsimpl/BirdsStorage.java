@@ -1,7 +1,7 @@
 package model.birdsimpl;
 
-import data.Database;
-import data.MemoryDatabase;
+import data.DAO;
+import data.MemoryDAO;
 import model.abstractstore.Product;
 import model.abstractstore.Storage;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BirdsStorage implements Storage {
 
-    private final Database<Products> products = new MemoryDatabase<>();
+    private final DAO<Products> products = new MemoryDAO<>();
 
 
     @Override

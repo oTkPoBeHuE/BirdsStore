@@ -1,8 +1,8 @@
 package services;
 
-import data.Database;
+import data.DAO;
 import data.FileSave;
-import data.MemoryDatabase;
+import data.MemoryDAO;
 import model.abstractstore.Money;
 import model.abstractstore.Order;
 
@@ -13,7 +13,7 @@ import java.util.UUID;
 
 
 public class OrdersService {
-    private static Database<Order> orders = new MemoryDatabase<>();
+    private static DAO<Order> orders = new MemoryDAO<>();
 
     private OrdersService() {
     }

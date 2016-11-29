@@ -1,9 +1,11 @@
 package services;
 
+import exceptions.ProductException;
 import model.abstractstore.Money;
 import model.abstractstore.Storage;
 import model.birdsimpl.Bird;
 import model.birdsimpl.BirdsStorage;
+import utils.Utilities;
 
 import java.util.List;
 
@@ -22,7 +24,9 @@ public class StorageService {
         storage.addItem(new Bird(name, price), 0);
     }
 
-    public void addBirdsItem(String name, String price) {
+    public void addBirdsItem(String name, String price) throws ProductException {
+        Utilities.checkProductFormat(name);
+
         addBirdsItem(name, Money.parseMoney(price));
     }
 

@@ -3,7 +3,7 @@ package data;
 import java.util.*;
 
 
-public class MemoryDatabase<T> implements Database<T> {
+public class MemoryDAO<T> implements DAO<T> {
     private Map <String, T> data = new HashMap<>();
 
     @Override

@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class FileSave {
     static final char SEPARATOR = ',';
 
-    public static void saveUserDB(Database<User> userDB, String filename) throws IOException {
+    public static void saveUserDB(DAO<User> userDB, String filename) throws IOException {
         List<String> lines = userDB.findAll()
                 .stream()
                 .map(user -> user.getName() + SEPARATOR
@@ -26,7 +26,15 @@ public class FileSave {
         Files.write(Paths.get(filename), lines);
     }
 
-    public static void saveOrderDB(Database<Order> ordersDB, String filename) throws IOException {
+    public static void readUserDB(DAO<User> userDB, String filename) throws IOException {
+        UserService.clear();
+        Files.lines(Paths.get(filename))
+                .map(line -> Arrays.asList(line.split(String.valueOf(SEPARATOR))))
+                .forEach(line -> UserService.createUser(line.get(0), line.get(1), line.get(2)));
+    }
+
+
+    public static void saveOrderDB(DAO<Order> ordersDB, String filename) throws IOException {
         List<String> lines = ordersDB.findAll()
                 .stream()
                 .map(order -> order.getID() + SEPARATOR
@@ -41,10 +49,5 @@ public class FileSave {
     }
 
 
-    public static void readUserDB(Database<User> userDB, String filename) throws IOException {
-        UserService.clear();
-        Files.lines(Paths.get(filename))
-                .map(line -> Arrays.asList(line.split(String.valueOf(SEPARATOR))))
-                .forEach(line -> UserService.createUser(line.get(0), line.get(1), line.get(2)));
-    }
+
 }

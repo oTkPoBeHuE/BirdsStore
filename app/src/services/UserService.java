@@ -1,8 +1,8 @@
 package services;
 
-import data.Database;
+import data.DAO;
 import data.FileSave;
-import data.MemoryDatabase;
+import data.MemoryDAO;
 import exceptions.UserException;
 import model.abstractstore.Money;
 import model.abstractstore.User;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class UserService {
-    private static Database<User> users = new MemoryDatabase<>();
+    private static DAO<User> users = new MemoryDAO<>();
 
     private UserService() {
 

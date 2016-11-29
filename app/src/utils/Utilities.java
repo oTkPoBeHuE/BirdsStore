@@ -74,5 +74,12 @@ public final class Utilities {
         }
     }
 
+    public static void checkProductFormat(String name) throws ProductException {
+        Pattern p = Pattern.compile("^[a-zA-Z0-9_-]{"+ Settings.PRODUCTNAME_MIN_LENGTH+","+ Settings.PRODUCT_NAME_MAX_LENGTH +"}$");
+        if (name == null || !p.matcher(name).matches() ) {
+            throw new ProductException(ExceptionMessages.INVALID_USERNAME + " " +name);
+        }
+    }
+
 
 }

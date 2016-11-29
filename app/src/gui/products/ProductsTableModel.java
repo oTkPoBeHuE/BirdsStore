@@ -74,8 +74,4 @@ public class ProductsTableModel extends DefaultTableModel {
         return "";
     }
 
-    @Override
-    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-
-    }
 }
