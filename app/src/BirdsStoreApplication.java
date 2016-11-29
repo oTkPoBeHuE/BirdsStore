@@ -10,6 +10,7 @@ import services.UserService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class BirdsStoreApplication {
     private static void createAndShowGUI() {
@@ -33,7 +34,12 @@ public class BirdsStoreApplication {
     }
 
     public static void main(String[] args) {
-
+//        String filename = "D:\\prj\\test.txt";
+//        try {
+//            UserService.read(filename);
+//        } catch (Exception e) {
+//            GuiUtilities.printErrorMessage(e);
+//        }
         try {
             UserService.addUser("nameTest1", "testPWD1");
             UserService.addUser("q11", "123");

@@ -28,9 +28,14 @@ public class UserService {
         createUser(username, password, Money.parseMoney("0"));
     }
 
-    private static void createUser(String username, String password, Money money) {
+    public static void createUser(String username, String password, Money money) {
         users.save(username, new User(username, password, money));
     }
+
+    public static void createUser(String username, String password, String money) {
+        createUser(username, password, Money.parseMoney(money));
+    }
+
 
     public static boolean containsUser(String username) {
         return users.containsKey(username);
@@ -54,10 +59,14 @@ public class UserService {
     }
 
     public static void save(String filename) throws IOException {
-        FileSave.saveDB(users, filename);
+        FileSave.saveUserDB(users, filename);
     }
 
     public static void clear() {
         users.clear();
+    }
+
+    public static void read(String filename) throws IOException {
+        FileSave.readUserDB(users, filename);
     }
 }

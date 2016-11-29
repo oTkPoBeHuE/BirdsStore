@@ -31,6 +31,7 @@ public final class StringConstants {
     public static final String READ= "Read: ";
     public static final String USERS_SAVE = "Save users";
     public static final String USERS_READ = "Read users";
+    public static final String SAVE_ORDERS = "Save orders";
 
     private StringConstants() {
     }

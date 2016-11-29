@@ -1,25 +1,26 @@
-package gui.users;
+package gui.orders;
 
 import gui.components.ButtonBox;
 import gui.components.StdComponents;
 import gui.components.TextFieldBox;
 import gui.utils.GuiUtilities;
 import gui.utils.StringConstants;
+import model.abstractstore.Order;
+import services.OrdersService;
 import services.UserService;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 /**
- * Created by oTk on 29.11.2016.
+ * Created by oTk on 30.11.2016.
  */
-public class ReadUsersWindow extends JFrame {
-
+public class SaveOrdersWindow extends JFrame {
     TextFieldBox filenameBox;
     Box mainBox;
     ButtonBox buttonBox;
 
-    public ReadUsersWindow() {
+    public SaveOrdersWindow() {
         super(StringConstants.ADD_USER);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         init();
@@ -34,18 +35,18 @@ public class ReadUsersWindow extends JFrame {
 
     private void setMainBox(){
         filenameBox = new TextFieldBox(StringConstants.FILENAME, 40);
-        buttonBox = StdComponents.getButtonBox(StringConstants.READ, e -> read(filenameBox.jTextField.getText()), e->setVisible(false));
+        buttonBox = StdComponents.getButtonBox(StringConstants.SAVE, e -> save(filenameBox.jTextField.getText()), e->setVisible(false));
 
         mainBox = Box.createVerticalBox();
         mainBox.setBorder(new EmptyBorder(12, 12, 12, 12));
         mainBox.add(filenameBox.box);
-        mainBox.add(Box.createVerticalStrut(17));
+        mainBox.add(Box.createVerticalStrut(13));
         mainBox.add(buttonBox.box);
     }
 
-    private void read(String filename) {
+    private void save(String filename) {
         try {
-            UserService.read(filename);
+            OrdersService.save(filename);
         } catch (Exception e) {
             GuiUtilities.printErrorMessage(e);
         }
