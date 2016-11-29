@@ -52,7 +52,7 @@ public class ProductsTableModel extends DefaultTableModel {
             case 2:
                 return Integer.class;
             default:
-                return String.class; // TODO: ?????
+                return String.class;
         }
     }
 
@@ -73,7 +73,6 @@ public class ProductsTableModel extends DefaultTableModel {
             case 2:
                 return products.get(rowIndex).getCount();
         }
-
         return "";
     }
 

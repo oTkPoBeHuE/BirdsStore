@@ -1,5 +1,6 @@
 package gui;
 
+import gui.orders.BuyWindow;
 import gui.orders.OrdersTableModel;
 import gui.products.AddProductWindow;
 import gui.products.ProductsTableModel;
@@ -57,6 +58,7 @@ public  class MainFrame extends JFrame{
         menuBar.add(createJMenuItem(StringConstants.CREATE_USER, new AddUserWindow()));
         menuBar.add(createJMenuItem(StringConstants.SET_MONEY, new SetMoneyWindow()));
         menuBar.add(createJMenuItem(StringConstants.ADD_PRODUCT, new AddProductWindow()));
+        menuBar.add(createJMenuItem(StringConstants.BUY, new BuyWindow()));
 
         menuBar.add(Box.createHorizontalGlue());
         setJMenuBar(menuBar);

@@ -34,7 +34,7 @@ public class AddProductWindow extends JFrame {
     }
 
     private void setMainBox() {
-        productNameBox = new TextFieldBox(StringConstants.PRODUCT_NAME, Settings.PRODUCT_NAME_MAX_LENGTH);
+        productNameBox =
         productPriceBox = new TextFieldBox(StringConstants.PRODUCT_PRICE, Settings.MONEY_MAX_CHAR_LENGTH);
         buttonBox = new ButtonBox(
                 StringConstants.OK,

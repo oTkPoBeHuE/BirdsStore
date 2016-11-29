@@ -19,9 +19,11 @@ public final class StringConstants {
     public static final String PASSWORD = "Password:";
     public static final String ADD_MONEY = "Add Money";
     public static final String MONEY = "Money:";
-    public static final String ADD_PRODUCT = "ADD Product";
+    public static final String ADD_PRODUCT = "add Product";
     public static final String CREATE = "Create";
     public static final String PRODUCT_PRICE = "Product price:";
+    public static final String BUY = "Buy";
 
-    private StringConstants(){}
+    private StringConstants() {
+    }
 }

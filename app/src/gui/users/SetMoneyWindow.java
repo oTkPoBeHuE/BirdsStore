@@ -1,6 +1,7 @@
 package gui.users;
 
 import gui.components.ButtonBox;
+import gui.components.StdComponents;
 import gui.components.TextFieldBox;
 import gui.utils.Settings;
 import gui.utils.StringConstants;
@@ -8,14 +9,11 @@ import services.UserService;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.NumberFormatter;
-import java.text.NumberFormat;
 
 /**
  * Created by oTk on 29.11.2016.
  */
 public class SetMoneyWindow extends JFrame {
-
 
     TextFieldBox loginBox;
     TextFieldBox moneyBox;
@@ -36,12 +34,9 @@ public class SetMoneyWindow extends JFrame {
     }
 
     private void setMainBox() {
-       // setLoginBox();
-      //  setMoneyBox();
-       // setButtonBox();
 
-        loginBox = new TextFieldBox(StringConstants.USERNAME , Settings.USERNAME_MAX_LENGTH);
-        moneyBox = new TextFieldBox(StringConstants.MONEY , Settings.MONEY_MAX_CHAR_LENGTH);
+        loginBox = StdComponents.getUsernameBox();
+        moneyBox = StdComponents.getMoneyBox();
         buttonBox = new ButtonBox(
                 StringConstants.OK,
                 e -> addMoney(loginBox.jTextField.getText(), moneyBox.jTextField.getText()),

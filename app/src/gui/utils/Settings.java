@@ -8,4 +8,5 @@ public final class Settings {
     public static final int PASSWORD_MAX_LENGTH = 7;
     public static final int MONEY_MAX_CHAR_LENGTH = 7;
     public static final int PRODUCT_NAME_MAX_LENGTH = 7;
+    public static final int COUNT_MAX_CHAR_LENGTH = 2;
 }
