@@ -1,8 +1,6 @@
 package gui.utils;
 
-/**
- * Created by oTk on 29.11.2016.
- */
+
 public final class StringConstants {
     public static final String PRODUCT_NAME = "Product name: ";
     public static final String USERNAME = "Username: ";

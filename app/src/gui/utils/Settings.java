@@ -1,8 +1,6 @@
 package gui.utils;
 
-/**
- * Created by oTk on 29.11.2016.
- */
+
 public final class Settings {
     public static final int USERNAME_MAX_LENGTH = 10;
     public static final int USERNAME_MIN_LENGTH = 2;

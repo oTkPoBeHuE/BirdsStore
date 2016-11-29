@@ -1,7 +1,6 @@
 package data;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 public interface Database<T> {
     void save(String key, T value);

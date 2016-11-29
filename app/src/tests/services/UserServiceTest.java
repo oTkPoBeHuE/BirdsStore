@@ -5,9 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by oTk on 29.11.2016.
- */
+
 public class UserServiceTest {
 
 

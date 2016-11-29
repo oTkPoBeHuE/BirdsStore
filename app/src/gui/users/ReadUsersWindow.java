@@ -10,9 +10,6 @@ import services.UserService;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-/**
- * Created by oTk on 29.11.2016.
- */
 public class ReadUsersWindow extends JFrame {
 
     TextFieldBox filenameBox;

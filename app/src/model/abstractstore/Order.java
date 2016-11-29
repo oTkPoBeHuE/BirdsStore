@@ -1,7 +1,5 @@
 package model.abstractstore;
 
-import data.FileSave;
-
 import java.time.LocalTime;
 
 public class Order implements Comparable {

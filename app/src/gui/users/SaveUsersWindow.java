@@ -12,9 +12,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.io.IOException;
 
-/**
- * Created by oTk on 29.11.2016.
- */
+
 public class SaveUsersWindow extends JFrame {
     TextFieldBox filenameBox;
     Box mainBox;

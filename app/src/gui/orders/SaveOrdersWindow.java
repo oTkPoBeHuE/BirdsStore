@@ -5,16 +5,12 @@ import gui.components.StdComponents;
 import gui.components.TextFieldBox;
 import gui.utils.GuiUtilities;
 import gui.utils.StringConstants;
-import model.abstractstore.Order;
 import services.OrdersService;
-import services.UserService;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-/**
- * Created by oTk on 30.11.2016.
- */
+
 public class SaveOrdersWindow extends JFrame {
     TextFieldBox filenameBox;
     Box mainBox;
