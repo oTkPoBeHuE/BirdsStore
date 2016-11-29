@@ -20,14 +20,10 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by oTk on 27.11.2016.
  */
-public  class MainFrame extends JFrame{
+public class MainFrame extends JFrame {
 
 
     private final ScheduledExecutorService scheduler;
-
-    private void update(Runnable command){
-        scheduler.scheduleAtFixedRate(command, 0, 300, TimeUnit.MILLISECONDS);
-    }
 
     public MainFrame(String title) throws HeadlessException {
         super(title);
@@ -41,15 +37,19 @@ public  class MainFrame extends JFrame{
         setLayout(new FlowLayout());
     }
 
-    private void addTable(AbstractTableModel  tableModel){
-        AbstractTableModel  model = tableModel;
+    private void update(Runnable command) {
+        scheduler.scheduleAtFixedRate(command, 0, 300, TimeUnit.MILLISECONDS);
+    }
+
+    private void addTable(AbstractTableModel tableModel) {
+        AbstractTableModel model = tableModel;
         JTable table = new JTable(model);
         getContentPane().add(new JScrollPane(table));
         setPreferredSize(new Dimension(260, 220));
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-        update(()->model.fireTableDataChanged());
+        update(() -> model.fireTableDataChanged());
     }
 
     private void addMenu() {
@@ -64,7 +64,7 @@ public  class MainFrame extends JFrame{
         setJMenuBar(menuBar);
     }
 
-    private JMenuItem createJMenuItem(String name,  JFrame jFrame ){
+    private JMenuItem createJMenuItem(String name, JFrame jFrame) {
         JMenuItem jMenuItem = new JMenuItem(name);
         jMenuItem.addActionListener(e -> jFrame.setVisible(true));
         return jMenuItem;

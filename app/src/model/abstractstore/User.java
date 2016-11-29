@@ -3,7 +3,7 @@ package model.abstractstore;
 /**
  * Created by oTk on 26.11.2016.
  */
-public class User implements  Comparable {
+public class User implements Comparable {
     private final String name;
     private String password;
     private Money money;
@@ -30,11 +30,12 @@ public class User implements  Comparable {
         return money;
     }
 
-    public void setMoney(Money money) {
-        this.money = money;
-    }
     public void setMoney(String moneyString) {
         this.money = Money.parseMoney(moneyString);
+    }
+
+    public void setMoney(Money money) {
+        this.money = money;
     }
 
     @Override
@@ -55,7 +56,7 @@ public class User implements  Comparable {
 
     @Override
     public int compareTo(Object o) {
-        return name.compareTo(((User)o).name);
+        return name.compareTo(((User) o).name);
     }
 
 }

@@ -37,7 +37,7 @@ public abstract class Product {
         return name.hashCode();
     }
 
-    public final   int compare(Object o){
-        return name.compareTo(((Product)o).name);
+    public final int compare(Object o) {
+        return name.compareTo(((Product) o).name);
     }
 }

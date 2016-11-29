@@ -2,40 +2,41 @@ package model.abstractstore;
 
 import java.math.BigDecimal;
 
-public final class  Money implements Comparable {
+public final class Money implements Comparable {
     //// TODO: Возможно стоит убрать интерфейс  Comparable и добавить метод которые сранивает числа
     // Objects.requireNonNull() - проверяет на null и бросает  NullPointerException если аргумент имеет значение NUL
 
-    private final BigDecimal  amount;
-
-    public static Money  parseMoney(String s){
-        return new Money(new BigDecimal(s));
-    }
-    public static Money  parseMoney(BigDecimal amount){
-        return new Money(amount);
-    }
+    private final BigDecimal amount;
 
     private Money(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public Money add(Money other){
+    public static Money parseMoney(String s) {
+        return new Money(new BigDecimal(s));
+    }
+
+    public static Money parseMoney(BigDecimal amount) {
+        return new Money(amount);
+    }
+
+    public Money add(Money other) {
         return newMoney(amount.add(other.amount));
     }
 
-    public Money add(String amount){
-        return  this.add(parseMoney(amount));
+    public Money add(String amount) {
+        return this.add(parseMoney(amount));
     }
 
-    public Money subtract(Money other){
+    public Money subtract(Money other) {
         return newMoney(amount.subtract(other.amount));
     }
 
-    public Money subtract(String amount){
-        return  this.subtract(parseMoney(amount));
+    public Money subtract(String amount) {
+        return this.subtract(parseMoney(amount));
     }
-    
-    private Money newMoney(BigDecimal  amount) {
+
+    private Money newMoney(BigDecimal amount) {
         return new Money(amount);
     }
 
@@ -66,11 +67,11 @@ public final class  Money implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        return amount.compareTo(((Money)o).getAmount());
+        return amount.compareTo(((Money) o).getAmount());
     }
 
     public boolean amountExist(Money totalAmount) {
-        return   compareTo(totalAmount) >= 0;
+        return compareTo(totalAmount) >= 0;
     }
 
     public Money multiply(Money money) {

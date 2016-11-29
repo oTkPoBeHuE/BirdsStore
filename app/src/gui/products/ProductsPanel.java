@@ -1,7 +1,5 @@
 package gui.products;
 
-import gui.users.UsersTableModel;
-
 import javax.swing.*;
 import javax.swing.table.TableModel;
 import java.awt.*;

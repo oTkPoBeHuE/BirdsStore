@@ -1,7 +1,5 @@
 package gui.orders;
 
-import gui.products.ProductsTableModel;
-
 import javax.swing.*;
 import javax.swing.table.TableModel;
 import java.awt.*;

@@ -3,7 +3,7 @@ package gui.users;
 import gui.components.ButtonBox;
 import gui.components.StdComponents;
 import gui.components.TextFieldBox;
-import gui.utils.Settings;
+import gui.utils.GuiUtilities;
 import gui.utils.StringConstants;
 import services.UserService;
 
@@ -52,21 +52,13 @@ public class SetMoneyWindow extends JFrame {
         mainBox.add(Box.createVerticalStrut(17));
         mainBox.add(buttonBox.box);
     }
-//
-//    private static NumberFormat getMoneyFormat() {
-//        NumberFormat format = NumberFormat.getCurrencyInstance();
-//        // format.setMaximumFractionDigits(0);
-//        NumberFormatter formatter = new NumberFormatter(format);
-//        formatter.setMinimum(0.01);
-//        formatter.setMaximum(999999999.0);
-//        formatter.setAllowsInvalid(false);
-//        formatter.setOverwriteMode(true);
-//        return format;
-//    }
-
 
     private void addMoney(String username, String money) {
-        UserService.setMoney(username, money);
+        try {
+            UserService.setMoney(username, money);
+        } catch (Exception e) {
+            GuiUtilities.printErrorMessage(e);
+        }
     }
 
 }

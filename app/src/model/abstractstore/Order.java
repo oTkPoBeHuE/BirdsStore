@@ -1,12 +1,6 @@
 package model.abstractstore;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-
-import static java.time.format.DateTimeFormatter.ISO_LOCAL_TIME;
-import static java.time.format.DateTimeFormatter.ISO_TIME;
 
 public class Order implements Comparable {
     //// TODO:: Add time % date

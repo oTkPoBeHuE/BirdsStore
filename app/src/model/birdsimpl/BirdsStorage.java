@@ -1,16 +1,15 @@
 package model.birdsimpl;
 
-import model.abstractstore.Product;
-import model.abstractstore.Storage;
 import data.Database;
 import data.MemoryDatabase;
+import model.abstractstore.Product;
+import model.abstractstore.Storage;
 
 import java.util.List;
 
 public class BirdsStorage implements Storage {
 
     private final Database<Products> products = new MemoryDatabase<Products>();
-
 
 
     @Override
@@ -50,7 +49,7 @@ public class BirdsStorage implements Storage {
     }
 
     @Override
-    public List<Products> getAllProducts(){
+    public List<Products> getAllProducts() {
         return products.findAll();
     }
 }

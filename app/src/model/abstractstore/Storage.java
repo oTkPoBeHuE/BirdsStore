@@ -51,7 +51,7 @@ public interface Storage {
 
         @Override
         public int compareTo(Object o) {
-            return product.compare(((Products)o).product);
+            return product.compare(((Products) o).product);
         }
     }
 }

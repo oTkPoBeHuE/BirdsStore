@@ -1,9 +1,11 @@
 package gui.users;
 
+import exceptions.UserException;
 import gui.components.ButtonBox;
 import gui.components.PasswordFieldBox;
 import gui.components.StdComponents;
 import gui.components.TextFieldBox;
+import gui.utils.GuiUtilities;
 import gui.utils.StringConstants;
 import services.UserService;
 
@@ -47,7 +49,7 @@ public class AddUserWindow extends JFrame {
         buttonBox = StdComponents.getButtonBox(
                 StringConstants.CREATE,
                 e -> addUser(loginBox.jTextField.getText(),
-                passwordFieldBox.jPasswordField.getPassword()),
+                        passwordFieldBox.jPasswordField.getPassword()),
                 e -> setVisible(false));
 
         loginBox.jLabel.setPreferredSize(passwordFieldBox.jLabel.getPreferredSize());
@@ -63,7 +65,13 @@ public class AddUserWindow extends JFrame {
 
 
     private void addUser(String username, char[] password) {
-        UserService.addUser(username, String.valueOf(password));
+        try {
+            UserService.addUser(username, String.valueOf(password));
+        } catch (UserException e) {
+            GuiUtilities.printErrorMessage(e);
+        } catch (Exception e) {
+            GuiUtilities.printErrorMessage(e);
+        }
     }
 
 

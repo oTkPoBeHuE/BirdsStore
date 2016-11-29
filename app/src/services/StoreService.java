@@ -14,19 +14,22 @@ import utils.Utilities;
 public class StoreService {
     private static StoreService ourInstance = new StoreService();
 
-    public static StoreService getInstance() {
-        return ourInstance;
+    private StoreService() {
     }
 
-    private StoreService() {
+    public static StoreService getInstance() {
+        return ourInstance;
     }
 
     public void buy(String username, String password, String productname, int count)
             throws AuthorisationException,
             UserException,
             ProductException,
-            MoneyException
-    {
+            MoneyException {
+        Utilities.checkUserNameFormat(username);
+        Utilities.checkPasswordFormat(password);
+        Utilities.checkCountFormat(count);
+
         Utilities.checkUserExist(username);
         Utilities.checkPassword(username, password);
         Utilities.checkProductExist(productname);
@@ -47,8 +50,6 @@ public class StoreService {
         OrdersService.generateOrder(productname, username, totalAmount, count);
 
     }
-
-
 
 
 }

@@ -35,7 +35,7 @@ public class AddProductWindow extends JFrame {
 
     private void setMainBox() {
         productNameBox =
-        productPriceBox = new TextFieldBox(StringConstants.PRODUCT_PRICE, Settings.MONEY_MAX_CHAR_LENGTH);
+                productPriceBox = new TextFieldBox(StringConstants.PRODUCT_PRICE, Settings.MONEY_MAX_CHAR_LENGTH);
         buttonBox = new ButtonBox(
                 StringConstants.OK,
                 e -> StorageService.getInstance().addBirdsItem(
@@ -55,7 +55,6 @@ public class AddProductWindow extends JFrame {
         mainBox.add(Box.createVerticalStrut(17));
         mainBox.add(buttonBox.box);
     }
-
 
 
 }

@@ -6,10 +6,7 @@ import model.abstractstore.User;
 import services.UserService;
 
 import javax.swing.event.TableModelListener;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -88,16 +85,6 @@ public class UsersTableModel extends DefaultTableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 
     }
-
-//    @Override
-//    public void addTableModelListener(TableModelListener listener) {
-//        listeners.add(listener);
-//    }
-//
-//    @Override
-//    public void removeTableModelListener(TableModelListener listener) {
-//        listeners.remove(listener);
-//    }
 
 
 }

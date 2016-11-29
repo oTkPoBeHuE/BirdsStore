@@ -4,8 +4,8 @@ import exceptions.AuthorisationException;
 import exceptions.MoneyException;
 import exceptions.ProductException;
 import exceptions.UserException;
+import gui.utils.GuiUtilities;
 import services.StorageService;
-import services.OrdersService;
 import services.StoreService;
 import services.UserService;
 
@@ -18,19 +18,19 @@ import java.awt.*;
 public class Gui {
     private static void createAndShowGUI() {
         //Create and set up the window.
-       // JFrame frame = new JFrame("HelloWorldSwing");
+        // JFrame frame = new JFrame("HelloWorldSwing");
         JFrame frame = new MainFrame("HelloWorldSwing");
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        frame.setUndecorated(true);
         frame.setPreferredSize(new Dimension(1400, 800));
-       //frame.setSize( 1600,1600 );
+        //frame.setSize( 1600,1600 );
         //frame.setUndecorated( true );
         frame.setVisible(true);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Add the ubiquitous "Hello World" label.
-       // frame.getContentPane().add(label);
+        // frame.getContentPane().add(label);
 
         //frame.setSize(1000, 1000);
         //Display the window.
@@ -39,18 +39,25 @@ public class Gui {
     }
 
     public static void main(String[] args) {
-        UserService.addUser("nameTest1", "testPWD1");
-        UserService.addUser("nameTest2", "testPWD2");
-        UserService.addUser("nameTest3", "testPWD3");
-        UserService.getUser("nameTest1").setMoney("100");
 
-        StorageService.getInstance().addBirdsItem("testBird1", "10.0");
-        StorageService.getInstance().addBirdsItem("testBird2", "999.999");
-        StorageService.getInstance().addBirdsItem("testBird3", "01999.999");
-        StorageService.getInstance().receipt("testBird1", 15);
         try {
-            StoreService.getInstance().buy("nameTest1", "testPWD1", "testBird1", 3 );
-            StoreService.getInstance().buy("nameTest1", "testPWD1", "testBird1", 1 );
+            UserService.addUser("nameTest1", "testPWD1");
+            UserService.addUser("q11", "123");
+            UserService.addUser("nameTest3", "testPWD3");
+            UserService.getUser("nameTest1").setMoney("100");
+            UserService.getUser("q11").setMoney("100");
+            StorageService.getInstance().addBirdsItem("testBird1", "10.0");
+            StorageService.getInstance().addBirdsItem("b11", "19.9");
+            StorageService.getInstance().addBirdsItem("testBird3", "01999.999");
+            StorageService.getInstance().receipt("testBird1", 15);
+            StorageService.getInstance().receipt("b11", 4);
+        } catch (Exception e) {
+            GuiUtilities.printErrorMessage(e);
+        }
+
+        try {
+            StoreService.getInstance().buy("nameTest1", "testPWD1", "testBird1", 3);
+            StoreService.getInstance().buy("nameTest1", "testPWD1", "testBird1", 1);
         } catch (AuthorisationException |
                 ProductException |
                 UserException |
