@@ -2,9 +2,7 @@ package data;
 
 import java.util.*;
 
-/**
- * Created by oTk on 24.11.2016.
- */
+
 public class MemoryDatabase<T> implements Database<T> {
     private Map <String, T> data = new HashMap<>();
 

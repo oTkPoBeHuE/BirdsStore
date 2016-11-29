@@ -12,7 +12,7 @@ public final class ExceptionMessages {
     public static final String INVALID_NUMBER_FORMAT = "Invalid number format";
     public static final String INVALID_MONEY_FORMAT = "Invalid money format";
 
-    private ExceptionMessages(){};
+    private ExceptionMessages(){}
 
 
 

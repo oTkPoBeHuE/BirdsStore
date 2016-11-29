@@ -3,20 +3,21 @@ package model;
 import model.abstractstore.Money;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MoneyTest {
-    private static String NUMBER1 = "99.11";
-    private static String NUMBER2 = "3.11";
-    private static String NUMBER3 = "-3.11";
+    private static final String NUMBER1 = "99.11";
+    private static final String NUMBER2 = "3.11";
+    private static final String NUMBER3 = "-3.11";
 
-    private static String NUMBER1_ADD_NUMBER2 = "102.22";
-    private static String NUMBER1_SUB_NUMBER2 = "96.00";
-    private static String NUMBER2_SUB_NUMBER1 = "-96.00";
-    private static String NUMBER1_SUB_NUMBER1 = "0.00";
+    private static final String NUMBER1_ADD_NUMBER2 = "102.22";
+    private static final String NUMBER1_SUB_NUMBER2 = "96.00";
+    private static final String NUMBER2_SUB_NUMBER1 = "-96.00";
+    private static final String NUMBER1_SUB_NUMBER1 = "0.00";
 
-    private static String NUMBER1_SUB_NUMBER3 = "102.22";
-    private static String NUMBER1_ADD_NUMBER3 = "96.00";
+    private static final String NUMBER1_SUB_NUMBER3 = "102.22";
+    private static final String NUMBER1_ADD_NUMBER3 = "96.00";
 
     @Test
     public void add() throws Exception {

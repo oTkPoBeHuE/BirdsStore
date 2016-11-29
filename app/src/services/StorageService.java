@@ -7,9 +7,6 @@ import model.birdsimpl.BirdsStorage;
 
 import java.util.List;
 
-/**
- * Created by oTk on 27.11.2016.
- */
 public class StorageService {
     private static StorageService ourInstance = new StorageService();
     private static Storage storage = new BirdsStorage();

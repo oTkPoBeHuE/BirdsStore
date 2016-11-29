@@ -6,11 +6,9 @@ import gui.components.TextFieldBox;
 import gui.utils.GuiUtilities;
 import gui.utils.StringConstants;
 import services.UserService;
-import utils.Utilities;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.io.IOException;
 
 
 public class SaveUsersWindow extends JFrame {
