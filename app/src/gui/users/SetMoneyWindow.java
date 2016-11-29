@@ -105,7 +105,7 @@ public class SetMoneyWindow extends JFrame {
 
 
     private void addMoney(String username, String money) {
-        UserService.getInstance().setMoney(username, money);
+        UserService.setMoney(username, money);
     }
 
 }

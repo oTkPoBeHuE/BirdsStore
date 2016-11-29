@@ -73,7 +73,7 @@ public final class  Money implements Comparable {
         return   compareTo(totalAmount) >= 0;
     }
 
-    public Money pow(int count) {
-        return newMoney(amount.pow(count));
+    public Money multiply(Money money) {
+        return newMoney(amount.multiply(money.amount));
     }
 }

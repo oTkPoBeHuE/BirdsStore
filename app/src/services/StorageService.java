@@ -15,7 +15,6 @@ public class StorageService {
     private static Storage storage = new BirdsStorage();
 
     private StorageService() {
-
     }
 
     public static StorageService getInstance() {
@@ -38,15 +37,13 @@ public class StorageService {
         storage.put(productName, count);
     }
 
-
     public boolean containsProduct(String name) {
         return storage.contains(name);
     }
 
     public boolean containsProductCount(String productName, int count) {
-        return storage.getCount(productName) <= count;
+        return storage.getCount(productName) >= count;
     }
-
 
     public int size() {
         return storage.size();
@@ -56,7 +53,7 @@ public class StorageService {
         return storage.getAllProducts();
     }
 
-    public Money getPrice(String productName){
+    public Money getPrice(String productName) {
         return storage.findProduct(productName).getPrice();
     }
 

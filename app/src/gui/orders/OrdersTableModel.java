@@ -21,7 +21,7 @@ public class OrdersTableModel extends DefaultTableModel {
 
     @Override
     public int getRowCount() {
-        return OrdersService.getInstance().size();
+        return OrdersService.size();
     }
 
     @Override
@@ -71,7 +71,7 @@ public class OrdersTableModel extends DefaultTableModel {
     }
 
     public Object getValueAt(int rowIndex, int columnIndex) {
-        List<Order> orders = OrdersService.getInstance().getAllOrders();
+        List<Order> orders = OrdersService.getAllOrders();
         Collections.sort(orders);
 
         switch (columnIndex) {

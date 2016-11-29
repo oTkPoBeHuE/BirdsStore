@@ -7,6 +7,7 @@ import exceptions.UserException;
 import model.abstractstore.Money;
 import utils.Utilities;
 
+
 /**
  * Created by oTk on 29.11.2016.
  */
@@ -32,12 +33,17 @@ public class StoreService {
         Utilities.checkProductCount(productname, count);
 
 
-        Money totalAmount = StorageService.getInstance().getPrice(productname).pow(count);
+        Money totalAmount = StorageService.getInstance().
+                getPrice(productname).
+                multiply(Money.parseMoney(Integer.toString(count)));
 
-        Utilities.checkUserMoney(productname, totalAmount);
+        Utilities.checkUserMoney(username, totalAmount);
+
+        Money resultAmount = UserService.getUser(username).getMoney().subtract(totalAmount);
 
         StorageService.getInstance().release(productname, count);
-        UserService.getInstance().setMoney(username, UserService.getInstance().getUser(username).getMoney().subtract(totalAmount));
+        UserService.setMoney(username, resultAmount);
+
     }
 
 

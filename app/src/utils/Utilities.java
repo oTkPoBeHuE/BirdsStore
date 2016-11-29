@@ -24,12 +24,12 @@ public final class Utilities {
 
     //-----------------------------checks---------------------------------------------------//
     public static void checkPassword(String username, String password) throws AuthorisationException {
-        if (!Utilities.isCorrectPassword(UserService.getInstance().getUser(username), password))
+        if (!Utilities.isCorrectPassword(UserService.getUser(username), password))
             throw new AuthorisationException(ExceptionMessages.WRONG_PASSWORD);
     }
 
     public static void checkUserExist(String username) throws UserException {
-        if (!UserService.getInstance().containsUser(username))
+        if (!UserService.containsUser(username))
             throw new UserException(ExceptionMessages.USER_NOT_FOUND);
     }
 
@@ -44,10 +44,12 @@ public final class Utilities {
     }
 
     public static void checkUserMoney(String username, Money totalAmount) throws MoneyException {
-        Money userMoney = UserService.getInstance().getUser(username).getMoney();
+        Money userMoney = UserService.getUser(username).getMoney();
         if (!userMoney.amountExist(totalAmount)) {
             throw new MoneyException(ExceptionMessages.NOT_ENOUGH_MONEY);
         }
     }
+
+
 
 }

@@ -16,48 +16,34 @@ import java.util.function.BiFunction;
  * Created by oTk on 27.11.2016.
  */
 public class OrdersService {
-    private static OrdersService ourInstance = new OrdersService();
-    public static OrdersService getInstance() {
-        return ourInstance;
-    }
     private static Database<Order> orders = new MemoryDatabase<>();
 
     private OrdersService() {
     }
 
 
-    public void transaction(Order order){
-        StorageService.getInstance().release(order.getProductName(), order.getCount());
-        payBill(UserService.getInstance().getUser(order.getUserName()), order.getTotalAmount());
-        orders.save(order.getID(), order);
-    }
-
-    private Order generateOrder(String productname, String username, Money totalAmount, int count){
+    private static Order generateOrder(String productname, String username, Money totalAmount, int count){
         return new Order(generateID(), productname, username, totalAmount, count, LocalDateTime.now());
     }
 
-    private String generateID() {
+    private static  String generateID() {
         return UUID.randomUUID().toString();
     }
 
-    private void payBill(User user, Money totalAmount){
+    private static  void payBill(User user, Money totalAmount){
         user.setMoney(user.getMoney().subtract(totalAmount));
     }
 
-//    private void checkUserMoney(User user, Money totalAmount){
-//        if(!user.getMoney().amountExist(totalAmount));
-//        //TODO:: exception
-//    }
 
-    public Money getBill(Product product, int count, BiFunction<Product, Integer, Money> discount){
+    public static  Money getBill(Product product, int count, BiFunction<Product, Integer, Money> discount){
         return discount.apply(product, count);
     }
 
-    public int size() {
+    public static  int size() {
         return orders.size();
     }
 
-    public List<Order> getAllOrders(){
+    public static  List<Order> getAllOrders(){
         return orders.findAll();
     }
 }

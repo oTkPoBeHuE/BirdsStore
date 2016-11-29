@@ -94,7 +94,7 @@ public class AddUserWindow extends JFrame {
 
 
     private void addUser(String username, char[] password) {
-        UserService.getInstance().addUser(username, String.valueOf(password));
+        UserService.addUser(username, String.valueOf(password));
     }
 
 

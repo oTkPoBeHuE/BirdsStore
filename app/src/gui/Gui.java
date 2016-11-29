@@ -1,5 +1,9 @@
 package gui;
 
+import exceptions.AuthorisationException;
+import exceptions.MoneyException;
+import exceptions.ProductException;
+import exceptions.UserException;
 import services.StorageService;
 import services.OrdersService;
 import services.StoreService;
@@ -35,18 +39,25 @@ public class Gui {
     }
 
     public static void main(String[] args) {
-        UserService.getInstance().addUser("nameTest1", "testPWD1");
-        UserService.getInstance().addUser("nameTest2", "testPWD2");
-        UserService.getInstance().addUser("nameTest3", "testPWD3");
-        UserService.getInstance().getUser("nameTest1").setMoney("100");
+        UserService.addUser("nameTest1", "testPWD1");
+        UserService.addUser("nameTest2", "testPWD2");
+        UserService.addUser("nameTest3", "testPWD3");
+        UserService.getUser("nameTest1").setMoney("100");
 
         StorageService.getInstance().addBirdsItem("testBird1", "10.0");
         StorageService.getInstance().addBirdsItem("testBird2", "999.999");
         StorageService.getInstance().addBirdsItem("testBird3", "01999.999");
-        StorageService.getInstance().receipt("testBird1", 5);
+        StorageService.getInstance().receipt("testBird1", 15);
+        try {
+            StoreService.getInstance().buy("nameTest1", "testPWD1", "testBird1", 3 );
+            StoreService.getInstance().buy("nameTest1", "testPWD1", "testBird1", 1 );
+        } catch (AuthorisationException |
+                ProductException |
+                UserException |
+                MoneyException e) {
+            e.printStackTrace();
+        }
 
-        StoreService.getInstance().buy("nameTest1", "testPWD1", "testBird1", 3 );
-        StoreService.getInstance().buy("nameTest1", "testPWD1", "testBird1", 1 );
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {

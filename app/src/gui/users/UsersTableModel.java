@@ -25,7 +25,7 @@ public class UsersTableModel extends DefaultTableModel {
 
     @Override
     public int getRowCount() {
-        return UserService.getInstance().size();
+        return UserService.size();
     }
 
     @Override
@@ -69,7 +69,7 @@ public class UsersTableModel extends DefaultTableModel {
     // TODO: siglton statig bugfix
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        List<User> users = UserService.getInstance().getAllUsers();
+        List<User> users = UserService.getAllUsers();
         Collections.sort(users);
 
         switch (columnIndex) {
