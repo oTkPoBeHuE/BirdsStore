@@ -1,6 +1,11 @@
 package services;
 
+import exceptions.AuthorisationException;
+import exceptions.MoneyException;
+import exceptions.ProductException;
+import exceptions.UserException;
 import model.abstractstore.Money;
+import utils.Utilities;
 
 /**
  * Created by oTk on 29.11.2016.
@@ -15,42 +20,27 @@ public class StoreService {
     private StoreService() {
     }
 
-    public void buy(String username, String password, String productname, int count){
-        checkUserExist(username);
-        checkPassword(username, password);
-        checkProduct(productname);
-        checkProductCount(productname, count);
+    public void buy(String username, String password, String productname, int count)
+            throws AuthorisationException,
+            UserException,
+            ProductException,
+            MoneyException
+    {
+        Utilities.checkUserExist(username);
+        Utilities.checkPassword(username, password);
+        Utilities.checkProductExist(productname);
+        Utilities.checkProductCount(productname, count);
 
 
         Money totalAmount = StorageService.getInstance().getPrice(productname).pow(count);
-        checkUserMoney(productname, totalAmount);
 
-        UserService.getInstance().getUser(username);
+        Utilities.checkUserMoney(productname, totalAmount);
 
         StorageService.getInstance().release(productname, count);
         UserService.getInstance().setMoney(username, UserService.getInstance().getUser(username).getMoney().subtract(totalAmount));
-
     }
 
-    public void checkPassword(String username, String password) {
-        //TODO:: exception
-    }
 
-    public void checkUserExist(String username) {
-        //TODO:: exception
-    }
-
-    public void checkProduct(String name){
-        //TODO:: exception
-    }
-    public void checkProductCount(String productName, int  count){
-        //TODO:: exception
-    }
-    public void checkUserMoney(String username, Money totalAmount){
-        if(!UserService.getInstance().getUser(username).getMoney().amountExist(totalAmount)){
-            //TODO:: exception
-        }
-    }
 
 
 }

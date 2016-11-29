@@ -19,6 +19,7 @@ public final class StringConstants {
     public static final String PASSWORD = "Password:";
     public static final String ADD_MONEY = "Add Money";
     public static final String MONEY = "Money:";
+    public static final String ADD_PRODUCT = "ADD Product";
 
     private StringConstants(){}
 }

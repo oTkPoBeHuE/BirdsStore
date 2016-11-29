@@ -58,6 +58,6 @@ public class OrdersService {
     }
 
     public List<Order> getAllOrders(){
-        return orders.toList();
+        return orders.findAll();
     }
 }

@@ -23,7 +23,7 @@ public class UserService {
     }
 
     public User  getUser(String username){
-       return users.read(username);
+       return users.find(username);
     }
 
     public void  addUser(String username, String password){
@@ -40,7 +40,7 @@ public class UserService {
     }
 
     public boolean checkPassword(String username, String password){
-       return users.read(username).getPassword().equals(password);
+       return users.find(username).getPassword().equals(password);
     }
 
     public int size() {
@@ -48,7 +48,7 @@ public class UserService {
     }
 
     public List<User> getAllUsers(){
-        return users.toList();
+        return users.findAll();
     }
 
     public void setMoney(String username, String money) {

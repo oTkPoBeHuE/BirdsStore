@@ -4,7 +4,6 @@ import model.abstractstore.Product;
 import model.abstractstore.Storage;
 import data.Database;
 import data.MemoryDatabase;
-import model.abstractstore.User;
 
 import java.util.List;
 
@@ -22,17 +21,17 @@ public class BirdsStorage implements Storage {
 
     @Override
     public void push(String productName, int count) {
-        products.read(productName).add(count);
+        products.find(productName).add(count);
     }
 
     @Override
     public void put(String productName, int count) {
-        products.read(productName).sub(count);
+        products.find(productName).sub(count);
     }
 
     @Override
     public int getCount(String productName) {
-        return products.read(productName).getCount();
+        return products.find(productName).getCount();
     }
 
     @Override
@@ -42,7 +41,7 @@ public class BirdsStorage implements Storage {
 
     @Override
     public Product findProduct(String productName) {
-        return products.read(productName).getProduct();
+        return products.find(productName).getProduct();
     }
 
     @Override
@@ -52,6 +51,6 @@ public class BirdsStorage implements Storage {
 
     @Override
     public List<Products> getAllProducts(){
-        return products.toList();
+        return products.findAll();
     }
 }

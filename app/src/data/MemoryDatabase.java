@@ -14,7 +14,7 @@ public class MemoryDatabase<T> implements Database<T> {
     }
 
     @Override
-    public T read(String key) {
+    public T find(String key) {
         return data.get(key.toLowerCase());
     }
 
@@ -34,7 +34,7 @@ public class MemoryDatabase<T> implements Database<T> {
     }
 
     @Override
-    public List<T> toList() {
+    public List<T> findAll() {
         return new ArrayList<T>(data.values());
     }
 }
