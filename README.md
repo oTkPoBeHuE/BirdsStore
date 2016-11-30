@@ -1,5 +1,5 @@
 # BirdsStore
-Видео:  https://youtu.be/X9kALUlhExQ
+Видео: https://youtu.be/FKhwmUMmnt0
 
 Инструкция:
 Просто запустить jar
